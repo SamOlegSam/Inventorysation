@@ -1,0 +1,254 @@
+﻿@model Inventariz.Models.TankInv
+
+<div class="modal-header" style="text-align: center; background-color: #D0EDFE; border-radius:5px;">
+    <h5> Редактирование инвентаризации</h5>
+</div>
+<div class="modal-body">
+
+    @*<label>ID записи</label>*@
+    @*<input type="hidden" class="form-control btn-block" id="ID" value="@Model.Id" />*@
+    <input type="hidden" class="form-control btn-block" id="IDFilial" value="@Model.Filial" />
+
+
+    <div id="EditTab">
+    <table id="tabbEdit" border="1">
+        <tr>
+            <td>
+                <center>ID записи</center>
+            </td>
+            <td>
+                <center>Резервуар</center>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" class="form-control btn-block" id="InvIDEdit" readonly value="@Model.Id" />
+            </td>
+            <td>
+                <input type="text" class="form-control btn-block" id="InvRezerEdit" readonly value="@Model.Rezer" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <center>Общий уровень</center>
+            </td>
+            <td>
+                <center>Уровень H2O</center>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" class="form-control btn-block" id="InvUrovEdit" value="@Model.Urov" />
+            </td>
+            <td>
+                <input type="text" class="form-control btn-block" id="InvUrovH2OEdit" value="@Model.UrovH2O" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <center>Общий объем</center>
+            </td>
+            <td>
+                <center>Объем H2O</center>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" class="form-control btn-block" id="InvVEdit" value="@Model.V" />
+            </td>
+            <td>
+                <input type="text" class="form-control btn-block" id="InvVH2OEdit" value="@Model.VH2O" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <center>Объем нефти</center>
+            </td>
+            <td>
+                <center>Средняя температура</center>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" class="form-control btn-block" id="InvVNeftEdit" value="@Model.VNeft" />
+            </td>
+            <td>
+                <input type="text" class="form-control btn-block" id="InvTempEdit" value="@Model.Temp" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <center>Плотность при средней температуре</center>
+            </td>
+            <td>
+                <center>Масса брутто</center>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" class="form-control btn-block" id="InvPEdit" value="@Model.P" />
+            </td>
+            <td>
+                <input type="text" class="form-control btn-block" id="InvMassaBruttoEdit" value="@Model.MassaBrutto" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <center>Вода</center>
+            </td>
+            <td>
+                <center>Соль</center>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" class="form-control btn-block" id="InvH2OEdit" value="@Model.H2O" />
+
+            </td>
+            <td>
+                <input type="text" class="form-control btn-block" id="InvSaltEdit" value="@Model.Salt" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <center>Механические примеси</center>
+            </td>
+            <td>
+                <center>Баласт Всего (%)</center>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" class="form-control btn-block" id="InvMehEdit" value="@Model.Meh" />
+            </td>
+            <td>
+                <input type="text" class="form-control btn-block" id="InvBalProcEdit" value="@Model.BalProc" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <center>Баласт Всего (тонн)</center>
+            </td>
+            <td>
+                <center>Масса нефти нетто</center>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" class="form-control btn-block" id="InvBalTonnEdit" value="@Model.BalTonn" />
+            </td>
+            <td>
+                <input type="text" class="form-control btn-block" id="InvMassaNettoEdit" value="@Model.MassaNetto" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <center>Нижний нормативный уровень</center>
+            </td>
+            <td>
+                <center>Объем по нижнему нормативному уровню</center>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" class="form-control btn-block" id="InvHMimEdit" value="@Model.HMim" />
+            </td>
+            <td>
+                <input type="text" class="form-control btn-block" id="InvVMinEdit" value="@Model.VMin" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <center>Масса брутто (технологический остаток в резервуаре)</center>
+            </td>
+            <td>
+                <center>Масса нетто (технологический остаток в резервуаре)</center>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" class="form-control btn-block" id="InvMBalMinEdit" value="@Model.MBalMin" />
+            </td>
+            <td>
+                <input type="text" class="form-control btn-block" id="InvMNettoMinEdit" value="@Model.MNettoMin" /> 
+            </td>
+
+        </tr>
+    </table>
+        </div>
+</div>
+<div class="modal-footer" style="text-align:center">
+    <button type="submit" class="btn btn-info" style="min-width:100px" onclick="InventEditSave(@Model.Id)">Сохранить</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal" style="min-width:100px">Отмена</button>
+</div>
+
+<script>
+
+    $(function d() {
+        tabbEdit.addEventListener('change', function (e) {
+
+            var pref = e.target.id.substring(7);
+            var resName = $('#tankName' + pref).val();
+
+            var data = {
+                               
+                'ID': $('#InvIDEdit').val(),
+                'IDFilial': $('#IDFilial').val(),
+                'InvRezerEdit': $('#InvRezerEdit').val(),
+                'InvUrovEdit': $('#InvUrovEdit').val(),
+                'InvUrovH2OEdit': $('#InvUrovH2OEdit').val(),
+                'InvVEdit': $('#InvVEdit').val(),
+                'InvVH2OEdit': $('#InvVH2OEdit').val(),
+                'InvVNeftEdit': $('#InvVNeftEdit').val(),
+                'InvTempEdit': $('#InvTempEdit').val(),
+                'InvPEdit': $('#InvPEdit').val(),
+                'InvMassaBruttoEdit': $('#InvMassaBruttoEdit').val(),
+                'InvH2OEdit': $('#InvH2OEdit').val(),
+                'InvSaltEdit': $('#InvSaltEdit').val(),
+                'InvMehEdit': $('#InvMehEdit').val(),
+                'InvBalProcEdit': $('#InvBalProcEdit').val(),
+                'InvBalTonnEdit': $('#InvBalTonnEdit').val(),
+                'InvMassaNettoEdit': $('#InvMassaNettoEdit').val(),
+                'InvHMimEdit': $('#InvHMimEdit').val(),
+                'InvVMinEdit': $('#InvVMinEdit').val(),
+                'InvMNettoMinEdit': $('#InvMNettoMinEdit').val(),
+                'InvMBalMinEdit': $('#InvMBalMinEdit').val(),
+            };
+            $.ajax({
+                url: "/Home/GetUrovH2O",
+                type: "POST",
+                contentType: "application/json;charset=UTF-8",
+                data: JSON.stringify(data),
+                dataType: "html",
+                success: function (result) {                                                                                  
+                    
+                    let data = JSON.parse(result);
+                    const V = (data.V).toString().replace('.', ',');
+                    const VH2O = (data.VH2O).toString().replace('.', ',');
+                    const VNeft = (data.VNeft).toString().replace('.', ',');
+                    const MassaBrutto = (data.MassaBrutto).toString().replace('.', ',');
+                    const BalProc = (data.BalProc).toString().replace('.', ',');
+                    const BalTonn = (data.BalTonn).toString().replace('.', ',');
+                    const MassaNetto = (data.MassaNetto).toString().replace('.', ',');
+                    const MBalMin = (data.MBalMin).toString().replace('.', ',');
+                    const MNettoMin = (data.MNettoMin).toString().replace('.', ',');
+
+                    $('#InvVEdit').val(V);
+                    $('#InvVH2OEdit').val(VH2O);
+                    $('#InvVNeftEdit').val(VNeft);
+                    $('#InvMassaBruttoEdit').val(MassaBrutto);
+                    $('#InvBalProcEdit').val(BalProc);
+                    $('#InvBalTonnEdit').val(BalTonn);
+                    /*$('#InvMNettoMinEdit').val(MassaNetto);*/
+                    $('#InvMBalMinEdit').val(MBalMin);
+                    $('#InvMNettoMinEdit').val(MNettoMin);
+                    
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+            });
+        });
+    })
+
+</script>

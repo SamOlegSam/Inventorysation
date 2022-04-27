@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инвентаризация резервуарного парка</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+</head>
+
+<body class="grad">
+
+    <style>
+        .grad {
+            background-image: url(/Image/fon7.png);
+            background-repeat: round;
+        }
+
+        /*-------------------------------------------------*/
+        a.button9 {
+            position: relative;
+            display: inline-block;
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            text-shadow: rgba(255,255,255,.5) 1px 1px, rgba(100,100,100,.3) 3px 7px 3px;
+            user-select: none;
+            padding: 1em 2em;
+            outline: none;
+            border-radius: 3px / 100%;
+            background-image: linear-gradient(45deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.8), rgba(255,255,255,.0) 70%), linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0) 20%, rgba(255,255,255,0) 90%, rgba(255,255,255,.3)), linear-gradient(to right, rgba(125,125,125,1), rgba(255,255,255,.9) 45%, rgba(125,125,125,.5)), linear-gradient(to right, rgba(125,125,125,1), rgba(255,255,255,.9) 45%, rgba(125,125,125,.5)), linear-gradient(to right, rgba(223,190,170,1), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5)), linear-gradient(to right, rgba(223,190,170,1), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5));
+            background-repeat: no-repeat;
+            background-size: 200% 100%, auto, 100% 2px, 100% 2px, 100% 1px, 100% 1px;
+            background-position: 200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+            box-shadow: rgba(0,0,0,.5) 3px 10px 10px -10px;
+        }
+
+            a.button9:hover {
+                transition: .5s linear;
+                background-position: -200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+            }
+
+            a.button9:active {
+                top: 1px;
+            }
+        /*----------------------------------------------------*/
+
+    </style>
+
+<style>
+    a.boxShadow4 {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgba(255,255,255,.6);
+    text-shadow: 1px 1px rgba(0,0,0,.3);
+    text-decoration: none;
+    padding: 20px;
+    border-radius: 15px;
+    background: blue;
+    box-shadow:
+    inset 0 0 3px 1px rgba(0,0,0,.8),
+    inset rgba(0,0,0,.3) -5px -5px 8px 5px,
+    inset rgba(255,255,255,.5) 5px 5px 8px 5px,
+    1px 1px 1px rgba(255,255,255,.1),
+    -2px -2px 5px rgba(0,0,0,.5);
+    transition: .2s;
+    }
+    a.boxShadow4:hover {
+    color: rgba(255,255,255,.9);
+    background: rgb(20,130,20);
+    }
+    a.boxShadow4:active {
+    background: rgb(0,110,0);
+    box-shadow:
+    inset 0 0 5px 3px rgba(0,0,0,.8),
+    inset rgba(0,0,0,.3) -5px -5px 8px 5px,
+    inset rgba(255,255,255,.5) 5px 5px 8px 5px,
+    1px 1px 1px rgba(255,255,255,.2),
+    -2px -2px 5px rgba(0,0,0,.5);
+    }
+    </style>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+
+            <div class="navbar-collapse collapse">
+
+                @*<ul class="nav navbar-nav">
+            <li><a type="button" class="button9" href="/Home/Index/">Главная</a></li>
+            <li>&nbsp;</li>
+            <li><a type="button" class="button9" href="/Home/Calc/">Калькулятор</a></li>
+            <li>&nbsp;</li>
+            <li><a type="button" class="button9" href="/Home/GradTables/">Градуировочные таблицы</a></li>
+            <li>&nbsp;</li>
+            <li><a type="button" class="button9" href="/Home/AktInvent/">Акты инвентаризации</a></li>
+            <li>&nbsp;</li>
+            <li><a type="button" class="button9" href="/Home/NormInformation/">Нормативная информация</a></li>
+            <li>&nbsp;</li>
+            <li><a type="button" class="button9" href="/Home/Kom/">Комиссия</a></li>
+            <li>&nbsp;</li>
+            <li><a type="button" class="button9" onclick="Reference()">Справка</a></li>
+        </ul>*@
+                <ul class="nav navbar-nav">
+                    <li><a type="button" class="boxShadow4" href="/Home/Index/">Главная</a></li>
+                    <li>&nbsp;</li>
+                    <li><a type="button" class="boxShadow4" href="/Home/Calc/">Калькулятор</a></li>
+                    <li>&nbsp;</li>
+                    <li><a type="button" class="boxShadow4" href="/Home/GradTables/">Градуировочные таблицы</a></li>
+                    <li>&nbsp;</li>
+                    <li><a type="button" class="boxShadow4" href="/Home/AktInvent/">Акты инвентаризации</a></li>
+                    <li>&nbsp;</li>
+                    <li><a type="button" class="boxShadow4" href="/Home/NormInformation/">Нормативная информация</a></li>
+                    <li>&nbsp;</li>
+                    <li><a type="button" class="boxShadow4" href="/Home/Kom/">Комиссия</a></li>
+                    <li>&nbsp;</li>
+                    <li><a type="button" class="boxShadow4" onclick="Reference()">Справка</a></li>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer style="text-align:center">
+            <p>&copy; @DateTime.Now.Year Инвентаризация нефти в резервуарном парке ЛПДС "Мозырь"</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script src="~/Scripts/inventariz.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+﻿@model Inventariz.Models.calibration
+
+<div class="modal-header" style="text-align: center; background-color: #D0EDFE; border-radius:5px;">
+    <h5> Редактирование градуировочной таблицы</h5>
+</div>
+<div class="modal-body">
+
+    @*<label>ID записи</label>*@
+    <input type="hidden" class="form-control btn-block" id="ID" value="@Model.id" />
+
+    <label>Уровень, мм.</label>
+    <input type="text" class="form-control btn-block" id="urov" value="@Model.oillevel" onkeyup="this.value = this.value.replace(/[^(0-9)()]/,'');"/>
+
+    <label>Вместимость, м<sup><small>3</small></sup></label>
+    <input type="text" class="form-control btn-block" id="V" value="@Model.oilvolume" onkeyup="this.value = this.value.replace(/[^(0-9)(,)]/,'');"/>
+
+    
+</div>
+<div class="modal-footer" style="text-align:center">
+    <button type="submit" class="btn btn-info" style="min-width:100px" onclick="GradEditSave(@Model.id)">Сохранить</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal" style="min-width:100px">Отмена</button>
+</div>
+
+
+
+
+

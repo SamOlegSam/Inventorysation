@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Inventariz.Models.ChemLabEntities>
+
+
+    <table>
+        <tr>
+            <td>
+                <label>Начальный объем, м<sup><small>3</small></sup></label><br>
+                <input type="text" readonly class="form-control btn-block" id="Vn" value="@ViewBag.V1" />
+            </td>
+            <td colspan="3" style="text-align:center">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td>
+                <label>Конечный объем, м<sup><small>3</small></sup></label><br>
+                <input type="text" readonly class="form-control btn-block" id="Vk" value="@ViewBag.V2" />
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <label>Начальная масса, тонн</label><br>
+                <input type="text" readonly class="form-control btn-block" id="Mn" value="@ViewBag.Mnach" />
+            </td>
+            <td colspan="3" style="text-align:center">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td>
+                <label>Конечная масса, тонн</label><br>
+                <input type="text" readonly class="form-control btn-block" id="Mk" value="@ViewBag.Mkon" />
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <label>Объем, м<sup><small>3</small></sup></label><br>
+                <input type="text" readonly class="form-control btn-block" id="Rv" value="@ViewBag.RV" />
+            </td>
+            <td colspan="3" style="text-align:center">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td>
+                <label>Масса (брутто),тонн</label><br>
+                <input type="text" readonly class="form-control btn-block" id="Rm" value="@ViewBag.RM" />
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>
+                <label>Масса (нетто),тонн</label><br>
+                <input type="text" readonly class="form-control btn-block" id="RmB" value="@ViewBag.RMB"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>

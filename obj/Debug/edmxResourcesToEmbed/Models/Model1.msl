@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище asopnModelContainer" CdmEntityContainer="asopnEntities">
+    <EntitySetMapping Name="act">
+      <EntityTypeMapping TypeName="asopnModel.act">
+        <MappingFragment StoreEntitySet="act">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="unitid" ColumnName="unitid" />
+          <ScalarProperty Name="dt" ColumnName="dt" />
+          <ScalarProperty Name="dtwrite" ColumnName="dtwrite" />
+          <ScalarProperty Name="shift" ColumnName="shift" />
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="qpnumber" ColumnName="qpnumber" />
+          <ScalarProperty Name="vol" ColumnName="vol" />
+          <ScalarProperty Name="volstart" ColumnName="volstart" />
+          <ScalarProperty Name="volend" ColumnName="volend" />
+          <ScalarProperty Name="mas" ColumnName="mas" />
+          <ScalarProperty Name="masstart" ColumnName="masstart" />
+          <ScalarProperty Name="masend" ColumnName="masend" />
+          <ScalarProperty Name="t" ColumnName="t" />
+          <ScalarProperty Name="pres" ColumnName="pres" />
+          <ScalarProperty Name="dens" ColumnName="dens" />
+          <ScalarProperty Name="dens20" ColumnName="dens20" />
+          <ScalarProperty Name="masnetto" ColumnName="masnetto" />
+          <ScalarProperty Name="masballast" ColumnName="masballast" />
+          <ScalarProperty Name="maslosses" ColumnName="maslosses" />
+          <ScalarProperty Name="masborder" ColumnName="masborder" />
+          <ScalarProperty Name="dtsample" ColumnName="dtsample" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="act_tank">
+      <EntityTypeMapping TypeName="asopnModel.act_tank">
+        <MappingFragment StoreEntitySet="act_tank">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="dt" ColumnName="dt" />
+          <ScalarProperty Name="dtwrite" ColumnName="dtwrite" />
+          <ScalarProperty Name="dtsample" ColumnName="dtsample" />
+          <ScalarProperty Name="tank" ColumnName="tank" />
+          <ScalarProperty Name="unitid" ColumnName="unitid" />
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="qpnumber" ColumnName="qpnumber" />
+          <ScalarProperty Name="shift" ColumnName="shift" />
+          <ScalarProperty Name="levelstart" ColumnName="levelstart" />
+          <ScalarProperty Name="levelend" ColumnName="levelend" />
+          <ScalarProperty Name="wlevelstart" ColumnName="wlevelstart" />
+          <ScalarProperty Name="wlevelend" ColumnName="wlevelend" />
+          <ScalarProperty Name="vol" ColumnName="vol" />
+          <ScalarProperty Name="mas" ColumnName="mas" />
+          <ScalarProperty Name="temp" ColumnName="temp" />
+          <ScalarProperty Name="pres" ColumnName="pres" />
+          <ScalarProperty Name="dens" ColumnName="dens" />
+          <ScalarProperty Name="dens20" ColumnName="dens20" />
+          <ScalarProperty Name="masnetto" ColumnName="masnetto" />
+          <ScalarProperty Name="masbalast" ColumnName="masbalast" />
+          <ScalarProperty Name="qpid" ColumnName="qpid" />
+          <ScalarProperty Name="maslosses" ColumnName="maslosses" />
+          <ScalarProperty Name="masborder" ColumnName="masborder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="calibration">
+      <EntityTypeMapping TypeName="asopnModel.calibration">
+        <MappingFragment StoreEntitySet="calibration">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tankid" ColumnName="tankid" />
+          <ScalarProperty Name="oillevel" ColumnName="oillevel" />
+          <ScalarProperty Name="oilvolume" ColumnName="oilvolume" />
+          <ScalarProperty Name="filialid" ColumnName="filialid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="filials">
+      <EntityTypeMapping TypeName="asopnModel.filials">
+        <MappingFragment StoreEntitySet="filials">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="oper">
+      <EntityTypeMapping TypeName="asopnModel.oper">
+        <MappingFragment StoreEntitySet="oper">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="unitid" ColumnName="unitid" />
+          <ScalarProperty Name="dt" ColumnName="dt" />
+          <ScalarProperty Name="dtwrite" ColumnName="dtwrite" />
+          <ScalarProperty Name="line" ColumnName="line" />
+          <ScalarProperty Name="volhour" ColumnName="volhour" />
+          <ScalarProperty Name="voltotal" ColumnName="voltotal" />
+          <ScalarProperty Name="mashour" ColumnName="mashour" />
+          <ScalarProperty Name="mastotal" ColumnName="mastotal" />
+          <ScalarProperty Name="t" ColumnName="t" />
+          <ScalarProperty Name="pres" ColumnName="pres" />
+          <ScalarProperty Name="dens" ColumnName="dens" />
+          <ScalarProperty Name="dens20" ColumnName="dens20" />
+          <ScalarProperty Name="dens15" ColumnName="dens15" />
+          <ScalarProperty Name="tbik" ColumnName="tbik" />
+          <ScalarProperty Name="presbik" ColumnName="presbik" />
+          <ScalarProperty Name="vol20" ColumnName="vol20" />
+          <ScalarProperty Name="vol15" ColumnName="vol15" />
+          <ScalarProperty Name="visc" ColumnName="visc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Podpisanty">
+      <EntityTypeMapping TypeName="asopnModel.Podpisanty">
+        <MappingFragment StoreEntitySet="Podpisanty">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDFilial" ColumnName="IDFilial" />
+          <ScalarProperty Name="Doljnost" ColumnName="Doljnost" />
+          <ScalarProperty Name="FIO" ColumnName="FIO" />
+          <ScalarProperty Name="Nazn" ColumnName="Nazn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qpass">
+      <EntityTypeMapping TypeName="asopnModel.qpass">
+        <MappingFragment StoreEntitySet="qpass">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="unitid" ColumnName="unitid" />
+          <ScalarProperty Name="dt" ColumnName="dt" />
+          <ScalarProperty Name="dtwrite" ColumnName="dtwrite" />
+          <ScalarProperty Name="dtsample" ColumnName="dtsample" />
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="shift" ColumnName="shift" />
+          <ScalarProperty Name="t" ColumnName="t" />
+          <ScalarProperty Name="pres" ColumnName="pres" />
+          <ScalarProperty Name="dens" ColumnName="dens" />
+          <ScalarProperty Name="dens20" ColumnName="dens20" />
+          <ScalarProperty Name="dens15" ColumnName="dens15" />
+          <ScalarProperty Name="water" ColumnName="water" />
+          <ScalarProperty Name="saltmg" ColumnName="saltmg" />
+          <ScalarProperty Name="saltprc" ColumnName="saltprc" />
+          <ScalarProperty Name="mechan" ColumnName="mechan" />
+          <ScalarProperty Name="sulphur" ColumnName="sulphur" />
+          <ScalarProperty Name="vaporpres" ColumnName="vaporpres" />
+          <ScalarProperty Name="ballast" ColumnName="ballast" />
+          <ScalarProperty Name="fr200" ColumnName="fr200" />
+          <ScalarProperty Name="fr300" ColumnName="fr300" />
+          <ScalarProperty Name="fr350" ColumnName="fr350" />
+          <ScalarProperty Name="paraffin" ColumnName="paraffin" />
+          <ScalarProperty Name="hydrogen" ColumnName="hydrogen" />
+          <ScalarProperty Name="mercaptan" ColumnName="mercaptan" />
+          <ScalarProperty Name="organic" ColumnName="organic" />
+          <ScalarProperty Name="mercaptanstr" ColumnName="mercaptanstr" />
+          <ScalarProperty Name="organicstr" ColumnName="organicstr" />
+          <ScalarProperty Name="designpet" ColumnName="designpet" />
+          <ScalarProperty Name="laborant" ColumnName="laborant" />
+          <ScalarProperty Name="operator" ColumnName="operator" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qpass_tank">
+      <EntityTypeMapping TypeName="asopnModel.qpass_tank">
+        <MappingFragment StoreEntitySet="qpass_tank">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="dt" ColumnName="dt" />
+          <ScalarProperty Name="dtwrite" ColumnName="dtwrite" />
+          <ScalarProperty Name="dtclose" ColumnName="dtclose" />
+          <ScalarProperty Name="levelsclose" ColumnName="levelsclose" />
+          <ScalarProperty Name="tank" ColumnName="tank" />
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="densar" ColumnName="densar" />
+          <ScalarProperty Name="tempar" ColumnName="tempar" />
+          <ScalarProperty Name="pres" ColumnName="pres" />
+          <ScalarProperty Name="temp" ColumnName="temp" />
+          <ScalarProperty Name="dens" ColumnName="dens" />
+          <ScalarProperty Name="dens20" ColumnName="dens20" />
+          <ScalarProperty Name="dens15" ColumnName="dens15" />
+          <ScalarProperty Name="water" ColumnName="water" />
+          <ScalarProperty Name="saltmg" ColumnName="saltmg" />
+          <ScalarProperty Name="saltprc" ColumnName="saltprc" />
+          <ScalarProperty Name="mechan" ColumnName="mechan" />
+          <ScalarProperty Name="sulphur" ColumnName="sulphur" />
+          <ScalarProperty Name="visc" ColumnName="visc" />
+          <ScalarProperty Name="fr200" ColumnName="fr200" />
+          <ScalarProperty Name="fr300" ColumnName="fr300" />
+          <ScalarProperty Name="fr350" ColumnName="fr350" />
+          <ScalarProperty Name="vaporpres" ColumnName="vaporpres" />
+          <ScalarProperty Name="paraffin" ColumnName="paraffin" />
+          <ScalarProperty Name="hydrogen" ColumnName="hydrogen" />
+          <ScalarProperty Name="mercaptan" ColumnName="mercaptan" />
+          <ScalarProperty Name="organic" ColumnName="organic" />
+          <ScalarProperty Name="mercaptan_str" ColumnName="mercaptan_str" />
+          <ScalarProperty Name="organic_str" ColumnName="organic_str" />
+          <ScalarProperty Name="designpet" ColumnName="designpet" />
+          <ScalarProperty Name="operatorid" ColumnName="operatorid" />
+          <ScalarProperty Name="user" ColumnName="user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="shift">
+      <EntityTypeMapping TypeName="asopnModel.shift">
+        <MappingFragment StoreEntitySet="shift">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="unitid" ColumnName="unitid" />
+          <ScalarProperty Name="dt" ColumnName="dt" />
+          <ScalarProperty Name="dtwrite" ColumnName="dtwrite" />
+          <ScalarProperty Name="shift1" ColumnName="shift" />
+          <ScalarProperty Name="vol" ColumnName="vol" />
+          <ScalarProperty Name="volstart" ColumnName="volstart" />
+          <ScalarProperty Name="volend" ColumnName="volend" />
+          <ScalarProperty Name="mas" ColumnName="mas" />
+          <ScalarProperty Name="masstart" ColumnName="masstart" />
+          <ScalarProperty Name="masend" ColumnName="masend" />
+          <ScalarProperty Name="t" ColumnName="t" />
+          <ScalarProperty Name="pres" ColumnName="pres" />
+          <ScalarProperty Name="dens" ColumnName="dens" />
+          <ScalarProperty Name="dens20" ColumnName="dens20" />
+          <ScalarProperty Name="dens15" ColumnName="dens15" />
+          <ScalarProperty Name="vol20" ColumnName="vol20" />
+          <ScalarProperty Name="vol15" ColumnName="vol15" />
+          <ScalarProperty Name="masnetto" ColumnName="masnetto" />
+          <ScalarProperty Name="masballast" ColumnName="masballast" />
+          <ScalarProperty Name="dtstart" ColumnName="dtstart" />
+          <ScalarProperty Name="actnumber" ColumnName="actnumber" />
+          <ScalarProperty Name="omniid" ColumnName="omniid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="asopnModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="taginfo">
+      <EntityTypeMapping TypeName="asopnModel.taginfo">
+        <MappingFragment StoreEntitySet="taginfo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="dt" ColumnName="dt" />
+          <ScalarProperty Name="dtwrite" ColumnName="dtwrite" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="value" ColumnName="value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tags">
+      <EntityTypeMapping TypeName="asopnModel.tags">
+        <MappingFragment StoreEntitySet="tags">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tankinfo">
+      <EntityTypeMapping TypeName="asopnModel.tankinfo">
+        <MappingFragment StoreEntitySet="tankinfo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="dt" ColumnName="dt" />
+          <ScalarProperty Name="dtwrite" ColumnName="dtwrite" />
+          <ScalarProperty Name="filialid" ColumnName="filialid" />
+          <ScalarProperty Name="tankid" ColumnName="tankid" />
+          <ScalarProperty Name="level" ColumnName="level" />
+          <ScalarProperty Name="t" ColumnName="t" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TankInv">
+      <EntityTypeMapping TypeName="asopnModel.TankInv">
+        <MappingFragment StoreEntitySet="TankInv">
+          <ScalarProperty Name="VH2O" ColumnName="VH2O" />
+          <ScalarProperty Name="V" ColumnName="V" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Filial" ColumnName="Filial" />
+          <ScalarProperty Name="Rezer" ColumnName="Rezer" />
+          <ScalarProperty Name="Urov" ColumnName="Urov" />
+          <ScalarProperty Name="UrovH2O" ColumnName="UrovH2O" />
+          <ScalarProperty Name="UrovNeft" ColumnName="UrovNeft" />
+          <ScalarProperty Name="VNeft" ColumnName="VNeft" />
+          <ScalarProperty Name="Temp" ColumnName="Temp" />
+          <ScalarProperty Name="P" ColumnName="P" />
+          <ScalarProperty Name="MassaBrutto" ColumnName="MassaBrutto" />
+          <ScalarProperty Name="H2O" ColumnName="H2O" />
+          <ScalarProperty Name="Salt" ColumnName="Salt" />
+          <ScalarProperty Name="Meh" ColumnName="Meh" />
+          <ScalarProperty Name="BalProc" ColumnName="BalProc" />
+          <ScalarProperty Name="BalTonn" ColumnName="BalTonn" />
+          <ScalarProperty Name="MassaNetto" ColumnName="MassaNetto" />
+          <ScalarProperty Name="HMim" ColumnName="HMim" />
+          <ScalarProperty Name="VMin" ColumnName="VMin" />
+          <ScalarProperty Name="MBalMin" ColumnName="MBalMin" />
+          <ScalarProperty Name="MNettoMin" ColumnName="MNettoMin" />
+          <ScalarProperty Name="VTeh" ColumnName="VTeh" />
+          <ScalarProperty Name="MBalTeh" ColumnName="MBalTeh" />
+          <ScalarProperty Name="MNettoTeh" ColumnName="MNettoTeh" />
+          <ScalarProperty Name="MNettoTov" ColumnName="MNettoTov" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tanktags">
+      <EntityTypeMapping TypeName="asopnModel.tanktags">
+        <MappingFragment StoreEntitySet="tanktags">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="level" ColumnName="level" />
+          <ScalarProperty Name="t" ColumnName="t" />
+          <ScalarProperty Name="filialid" ColumnName="filialid" />
+          <ScalarProperty Name="tankid" ColumnName="tankid" />
+          <ScalarProperty Name="typeid" ColumnName="typeid" />
+          <ScalarProperty Name="enable" ColumnName="enable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="twohours">
+      <EntityTypeMapping TypeName="asopnModel.twohours">
+        <MappingFragment StoreEntitySet="twohours">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="unitid" ColumnName="unitid" />
+          <ScalarProperty Name="dt" ColumnName="dt" />
+          <ScalarProperty Name="dtwrite" ColumnName="dtwrite" />
+          <ScalarProperty Name="h2" ColumnName="h2" />
+          <ScalarProperty Name="h4" ColumnName="h4" />
+          <ScalarProperty Name="h6" ColumnName="h6" />
+          <ScalarProperty Name="h8" ColumnName="h8" />
+          <ScalarProperty Name="h10" ColumnName="h10" />
+          <ScalarProperty Name="h12" ColumnName="h12" />
+          <ScalarProperty Name="h14" ColumnName="h14" />
+          <ScalarProperty Name="h16" ColumnName="h16" />
+          <ScalarProperty Name="h18" ColumnName="h18" />
+          <ScalarProperty Name="h20" ColumnName="h20" />
+          <ScalarProperty Name="h22" ColumnName="h22" />
+          <ScalarProperty Name="h24" ColumnName="h24" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="twohoursconf">
+      <EntityTypeMapping TypeName="asopnModel.twohoursconf">
+        <MappingFragment StoreEntitySet="twohoursconf">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="unitid" ColumnName="unitid" />
+          <ScalarProperty Name="tag" ColumnName="tag" />
+          <ScalarProperty Name="hour" ColumnName="hour" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="units">
+      <EntityTypeMapping TypeName="asopnModel.units">
+        <MappingFragment StoreEntitySet="units">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="filialid" ColumnName="filialid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trl_tank">
+      <EntityTypeMapping TypeName="asopnModel.trl_tank">
+        <MappingFragment StoreEntitySet="trl_tank">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MinDopLevel" ColumnName="MinDopLevel" />
+          <ScalarProperty Name="MinDopVol" ColumnName="MinDopVol" />
+          <ScalarProperty Name="MaxVolume" ColumnName="MaxVolume" />
+          <ScalarProperty Name="grdTemper" ColumnName="grdTemper" />
+          <ScalarProperty Name="volCoef" ColumnName="volCoef" />
+          <ScalarProperty Name="WorkVolume" ColumnName="WorkVolume" />
+          <ScalarProperty Name="TankID" ColumnName="TankID" />
+          <ScalarProperty Name="FilialID" ColumnName="FilialID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trl_tanktype">
+      <EntityTypeMapping TypeName="asopnModel.trl_tanktype">
+        <MappingFragment StoreEntitySet="trl_tanktype">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsSteel" ColumnName="IsSteel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trl_tankview">
+      <EntityTypeMapping TypeName="asopnModel.trl_tankview">
+        <MappingFragment StoreEntitySet="trl_tankview">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="TankName" ColumnName="TankName" />
+          <ScalarProperty Name="MinDopLevel" ColumnName="MinDopLevel" />
+          <ScalarProperty Name="MinDopVol" ColumnName="MinDopVol" />
+          <ScalarProperty Name="grdTemper" ColumnName="grdTemper" />
+          <ScalarProperty Name="volCoef" ColumnName="volCoef" />
+          <ScalarProperty Name="MaxVolume" ColumnName="MaxVolume" />
+          <ScalarProperty Name="WorkVolume" ColumnName="WorkVolume" />
+          <ScalarProperty Name="TankID" ColumnName="TankID" />
+          <ScalarProperty Name="FilialID" ColumnName="FilialID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="IsSteel" ColumnName="IsSteel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

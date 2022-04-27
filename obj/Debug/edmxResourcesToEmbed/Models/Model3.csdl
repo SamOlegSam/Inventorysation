@@ -1,0 +1,951 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ChemLabModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ActionLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="operation" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="protocolid" Type="Guid" />
+    <Property Name="remoteip" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ActionLogPassport">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="operation" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="passportid" Type="Guid" />
+  </EntityType>
+  <EntityType Name="AuthActivity">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userid" Type="Int32" Nullable="false" />
+    <Property Name="lastactivity" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="islogged" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__AuthLog__userid__56E8E7AB" FromRole="AuthActivity" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="AuthHistory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userid" Type="Int32" Nullable="false" />
+    <Property Name="dt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="islogged" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__AuthHisto__useri__59C55456" FromRole="AuthHistory" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="filialid" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Filial" Relationship="Self.FK__Customer__filial__5441852A" FromRole="Customer" ToRole="Filial" />
+  </EntityType>
+  <EntityType Name="Filial">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__Customer__filial__5441852A" FromRole="Filial" ToRole="Customer" />
+    <NavigationProperty Name="SampleLocation" Relationship="Self.FK__SampleLoc__filia__59FA5E80" FromRole="Filial" ToRole="SampleLocation" />
+    <NavigationProperty Name="Room_old" Relationship="Self.FK__TestRoom__filial__45F365D3" FromRole="Filial" ToRole="Room_old" />
+    <NavigationProperty Name="Tool" Relationship="Self.FK__Tool2__filialid__44CA3770" FromRole="Filial" ToRole="Tool" />
+    <NavigationProperty Name="Tool_old" Relationship="Self.FK__Tool2__filialid__60A75C0F" FromRole="Filial" ToRole="Tool_old" />
+  </EntityType>
+  <EntityType Name="Passport">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="filialid" Type="Int32" Nullable="false" />
+    <Property Name="num" Type="Int32" Nullable="false" />
+    <Property Name="shift" Type="Int32" Nullable="false" />
+    <Property Name="dt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="dtsample" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="dtsamplelast" Type="DateTime" Precision="3" />
+    <Property Name="dtclose" Type="DateTime" Precision="3" />
+    <Property Name="closelevel" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="samplesourceid" Type="Int32" Nullable="false" />
+    <Property Name="samplelocationid" Type="Int32" Nullable="false" />
+    <Property Name="laborantid" Type="Int32" Nullable="false" />
+    <Property Name="operatorid" Type="Int32" Nullable="false" />
+    <Property Name="recipientid" Type="Int32" Nullable="false" />
+    <Property Name="throughsikn" Type="Boolean" Nullable="false" />
+    <Property Name="throughsiknid" Type="Int32" />
+    <Property Name="tempreal" Type="Double" />
+    <Property Name="pressure" Type="Double" />
+    <Property Name="densreal" Type="Double" />
+    <Property Name="dens20" Type="Double" />
+    <Property Name="dens15" Type="Double" />
+    <Property Name="water" Type="Double" />
+    <Property Name="saltmg" Type="Double" />
+    <Property Name="salt" Type="Double" />
+    <Property Name="mechan" Type="Double" />
+    <Property Name="sulphur" Type="Double" />
+    <Property Name="vaporpres" Type="Double" />
+    <Property Name="fr200" Type="Double" />
+    <Property Name="fr300" Type="Double" />
+    <Property Name="paraffin" Type="Double" />
+    <Property Name="hydrogen" Type="Double" />
+    <Property Name="mercaptan" Type="Double" />
+    <Property Name="organic" Type="Double" />
+    <Property Name="visc" Type="Double" />
+    <Property Name="designation" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PassportTnpa">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="tank" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="uun" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="filialid" Type="Int32" Nullable="false" />
+    <Property Name="position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="departmentid" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Users2old" Relationship="Self.FK__Users__personid__151B244E" FromRole="Person" ToRole="Users2old" />
+  </EntityType>
+  <EntityType Name="Protocol">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="filialid" Type="Int32" />
+    <Property Name="num" Type="Int32" Nullable="false" />
+    <Property Name="dt" Type="DateTime" Precision="3" />
+    <Property Name="testdt" Type="DateTime" Precision="3" />
+    <Property Name="endtestdt" Type="DateTime" Precision="3" />
+    <Property Name="customerid" Type="Int32" />
+    <Property Name="testobject" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="samplenum" Type="Int32" Nullable="false" />
+    <Property Name="sampledt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="endsampledt" Type="DateTime" Precision="3" />
+    <Property Name="samplerid" Type="Int32" />
+    <Property Name="samplesourceid" Type="Int32" Nullable="false" />
+    <Property Name="samplelocationid" Type="Int32" Nullable="false" />
+    <Property Name="samplelocationstr" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="sampletypeid" Type="Int32" />
+    <Property Name="sampletnpa" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="laborantid" Type="Int32" Nullable="false" />
+    <Property Name="responsibleid" Type="Int32" Nullable="false" />
+    <Property Name="startdt" Type="DateTime" Precision="3" />
+    <Property Name="enddt" Type="DateTime" Precision="3" />
+    <Property Name="isnotforpassport" Type="Boolean" Nullable="false" />
+    <Property Name="iscustomerssample" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Protocol_15062021">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="filialid" Type="Int32" />
+    <Property Name="num" Type="Int32" Nullable="false" />
+    <Property Name="dt" Type="DateTime" Precision="3" />
+    <Property Name="testdt" Type="DateTime" Precision="3" />
+    <Property Name="endtestdt" Type="DateTime" Precision="3" />
+    <Property Name="customerid" Type="Int32" />
+    <Property Name="testobject" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="samplenum" Type="Int32" Nullable="false" />
+    <Property Name="sampledt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="samplerid" Type="Int32" Nullable="false" />
+    <Property Name="samplesourceid" Type="Int32" Nullable="false" />
+    <Property Name="samplelocationid" Type="Int32" Nullable="false" />
+    <Property Name="samplelocationstr" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="sampletnpa" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="laborantid" Type="Int32" Nullable="false" />
+    <Property Name="responsibleid" Type="Int32" Nullable="false" />
+    <Property Name="startdt" Type="DateTime" Precision="3" />
+    <Property Name="enddt" Type="DateTime" Precision="3" />
+    <Property Name="sampletypeid" Type="Int32" />
+    <Property Name="isnotforpassport" Type="Boolean" Nullable="false" />
+    <Property Name="iscustomerssample" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Protocol_old">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="filialid" Type="Int32" />
+    <Property Name="num" Type="Int32" Nullable="false" />
+    <Property Name="dt" Type="DateTime" Precision="3" />
+    <Property Name="testdt" Type="DateTime" Precision="3" />
+    <Property Name="customerid" Type="Int32" />
+    <Property Name="testobject" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="samplenum" Type="Int32" Nullable="false" />
+    <Property Name="sampledt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="samplerid" Type="Int32" Nullable="false" />
+    <Property Name="samplesourceid" Type="Int32" Nullable="false" />
+    <Property Name="samplelocationid" Type="Int32" Nullable="false" />
+    <Property Name="samplelocationstr" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="sampletnpa" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="laborantid" Type="Int32" Nullable="false" />
+    <Property Name="responsibleid" Type="Int32" Nullable="false" />
+    <Property Name="startdt" Type="DateTime" Precision="3" />
+    <Property Name="enddt" Type="DateTime" Precision="3" />
+    <Property Name="sampletypeid" Type="Int32" />
+    <Property Name="isnotforpassport" Type="Boolean" Nullable="false" />
+    <Property Name="endtestdt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ProtocolResult">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="protocolid" Type="Guid" Nullable="false" />
+    <Property Name="tempareom" Type="Double" />
+    <Property Name="tempreal" Type="Double" />
+    <Property Name="densareom" Type="Double" />
+    <Property Name="densreal" Type="Double" />
+    <Property Name="dens20" Type="Double" />
+    <Property Name="dens15" Type="Double" />
+    <Property Name="water" Type="Double" />
+    <Property Name="saltmg" Type="Double" />
+    <Property Name="mechan" Type="Double" />
+    <Property Name="sulphur" Type="Double" />
+    <Property Name="vaporpres" Type="Double" />
+    <Property Name="fr200" Type="Double" />
+    <Property Name="fr300" Type="Double" />
+    <Property Name="fr350" Type="Double" />
+    <Property Name="paraffin" Type="Double" />
+    <Property Name="hydrogen" Type="Double" />
+    <Property Name="mercaptan" Type="Double" />
+    <Property Name="organic" Type="Double" />
+    <Property Name="visc" Type="Double" />
+    <Property Name="pressure" Type="Double" />
+  </EntityType>
+  <EntityType Name="ProtocolRoom">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="protocolid" Type="Guid" Nullable="false" />
+    <Property Name="roomid" Type="Int32" Nullable="false" />
+    <Property Name="temperature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pressure" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="humidity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="uid" Type="String" MaxLength="24" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProtocolTest">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="protocolid" Type="Guid" Nullable="false" />
+    <Property Name="dens" Type="Boolean" Nullable="false" />
+    <Property Name="water" Type="Boolean" Nullable="false" />
+    <Property Name="salt" Type="Boolean" Nullable="false" />
+    <Property Name="mechan" Type="Boolean" Nullable="false" />
+    <Property Name="sulphur" Type="Boolean" Nullable="false" />
+    <Property Name="vaporpres" Type="Boolean" Nullable="false" />
+    <Property Name="fraction" Type="Boolean" Nullable="false" />
+    <Property Name="paraffin" Type="Boolean" Nullable="false" />
+    <Property Name="hydrogen" Type="Boolean" Nullable="false" />
+    <Property Name="mercaptan" Type="Boolean" Nullable="false" />
+    <Property Name="organic" Type="Boolean" Nullable="false" />
+    <Property Name="visc" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProtocolTool">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="protocolid" Type="Guid" Nullable="false" />
+    <Property Name="toolid" Type="Guid" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProtocolTool_old">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="protocolid" Type="Guid" Nullable="false" />
+    <Property Name="toolid" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Recipient">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="filialid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="24" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Users2old" Relationship="Self.FK__Users__roleid__14270015" FromRole="Roles" ToRole="Users2old" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__Users__roleid__3F115E1A" FromRole="Roles" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="filialid" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Room_old">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="filialid" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Filial" Relationship="Self.FK__TestRoom__filial__45F365D3" FromRole="Room_old" ToRole="Filial" />
+  </EntityType>
+  <EntityType Name="SampleLocation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="filialid" Type="Int32" Nullable="false" />
+    <Property Name="sourceid" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tankid" Type="Int32" />
+    <NavigationProperty Name="Filial" Relationship="Self.FK__SampleLoc__filia__59FA5E80" FromRole="SampleLocation" ToRole="Filial" />
+    <NavigationProperty Name="SampleSource" Relationship="Self.FK__SampleLoc__typei__5AEE82B9" FromRole="SampleLocation" ToRole="SampleSource" />
+  </EntityType>
+  <EntityType Name="SampleSource">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="SampleLocation" Relationship="Self.FK__SampleLoc__typei__5AEE82B9" FromRole="SampleSource" ToRole="SampleLocation" />
+  </EntityType>
+  <EntityType Name="SampleType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TestDensTnpa">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="densroom" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="densreal" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="dens20" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="dens15" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TestTnpa">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="testtypeid" Type="Int32" />
+    <Property Name="name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TestType" Relationship="Self.FK__TestTnpa2__testt__208CD6FA" FromRole="TestTnpa" ToRole="TestType" />
+  </EntityType>
+  <EntityType Name="TestType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="shortname" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TestTnpa" Relationship="Self.FK__TestTnpa2__testt__208CD6FA" FromRole="TestType" ToRole="TestTnpa" />
+    <NavigationProperty Name="ToolType_old" Relationship="Self.FK__ToolType__testid__5070F446" FromRole="TestType" ToRole="ToolType_old" />
+    <NavigationProperty Name="ToolType" Relationship="Self.FK__ToolType2__testi__489AC854" FromRole="TestType" ToRole="ToolType" />
+  </EntityType>
+  <EntityType Name="Tool">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="filialid" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sernum" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="regnum" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="year" Type="Int16" />
+    <Property Name="checkdate" Type="DateTime" Precision="0" />
+    <Property Name="actual" Type="Boolean" Nullable="false" />
+    <Property Name="fullname" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="comment" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Filial" Relationship="Self.FK__Tool2__filialid__44CA3770" FromRole="Tool" ToRole="Filial" />
+    <NavigationProperty Name="ToolType" Relationship="Self.FK__ToolType2__tooli__47A6A41B" FromRole="Tool" ToRole="ToolType" />
+  </EntityType>
+  <EntityType Name="ToolType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="toolid" Type="Guid" Nullable="false" />
+    <Property Name="testid" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TestType" Relationship="Self.FK__ToolType2__testi__489AC854" FromRole="ToolType" ToRole="TestType" />
+    <NavigationProperty Name="Tool" Relationship="Self.FK__ToolType2__tooli__47A6A41B" FromRole="ToolType" ToRole="Tool" />
+  </EntityType>
+  <EntityType Name="ToolType_old">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="toolid" Type="Int32" Nullable="false" />
+    <Property Name="testid" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TestType" Relationship="Self.FK__ToolType__testid__5070F446" FromRole="ToolType_old" ToRole="TestType" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="login" Type="String" MaxLength="24" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pass" Type="Binary" MaxLength="16" FixedLength="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="roleid" Type="Int32" Nullable="false" />
+    <Property Name="filialid" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AuthActivity" Relationship="Self.FK__AuthLog__userid__56E8E7AB" FromRole="Users" ToRole="AuthActivity" />
+    <NavigationProperty Name="AuthHistory" Relationship="Self.FK__AuthHisto__useri__59C55456" FromRole="Users" ToRole="AuthHistory" />
+    <NavigationProperty Name="Roles" Relationship="Self.FK__Users__roleid__3F115E1A" FromRole="Users" ToRole="Roles" />
+  </EntityType>
+  <EntityType Name="Users2old">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="personid" Type="Int32" Nullable="false" />
+    <Property Name="roleid" Type="Int32" Nullable="false" />
+    <Property Name="login" Type="String" MaxLength="24" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pass" Type="Binary" MaxLength="16" FixedLength="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Person" Relationship="Self.FK__Users__personid__151B244E" FromRole="Users2old" ToRole="Person" />
+    <NavigationProperty Name="Roles" Relationship="Self.FK__Users__roleid__14270015" FromRole="Users2old" ToRole="Roles" />
+  </EntityType>
+  <EntityType Name="Protocol_trash">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="num" />
+      <PropertyRef Name="testobject" />
+      <PropertyRef Name="samplenum" />
+      <PropertyRef Name="sampledt" />
+      <PropertyRef Name="samplesourceid" />
+      <PropertyRef Name="samplelocationid" />
+      <PropertyRef Name="laborantid" />
+      <PropertyRef Name="responsibleid" />
+      <PropertyRef Name="isnotforpassport" />
+      <PropertyRef Name="iscustomerssample" />
+    </Key>
+    <Property Name="logdate" Type="DateTime" Precision="3" />
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="filialid" Type="Int32" />
+    <Property Name="num" Type="Int32" Nullable="false" />
+    <Property Name="dt" Type="DateTime" Precision="3" />
+    <Property Name="testdt" Type="DateTime" Precision="3" />
+    <Property Name="endtestdt" Type="DateTime" Precision="3" />
+    <Property Name="customerid" Type="Int32" />
+    <Property Name="testobject" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="samplenum" Type="Int32" Nullable="false" />
+    <Property Name="sampledt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="endsampledt" Type="DateTime" Precision="3" />
+    <Property Name="samplerid" Type="Int32" />
+    <Property Name="samplesourceid" Type="Int32" Nullable="false" />
+    <Property Name="samplelocationid" Type="Int32" Nullable="false" />
+    <Property Name="samplelocationstr" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="sampletypeid" Type="Int32" />
+    <Property Name="sampletnpa" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="laborantid" Type="Int32" Nullable="false" />
+    <Property Name="responsibleid" Type="Int32" Nullable="false" />
+    <Property Name="startdt" Type="DateTime" Precision="3" />
+    <Property Name="enddt" Type="DateTime" Precision="3" />
+    <Property Name="isnotforpassport" Type="Boolean" Nullable="false" />
+    <Property Name="iscustomerssample" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Protocol_updated">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="num" />
+      <PropertyRef Name="testobject" />
+      <PropertyRef Name="samplenum" />
+      <PropertyRef Name="sampledt" />
+      <PropertyRef Name="samplesourceid" />
+      <PropertyRef Name="samplelocationid" />
+      <PropertyRef Name="laborantid" />
+      <PropertyRef Name="responsibleid" />
+      <PropertyRef Name="isnotforpassport" />
+      <PropertyRef Name="iscustomerssample" />
+    </Key>
+    <Property Name="logdate" Type="DateTime" Precision="3" />
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="filialid" Type="Int32" />
+    <Property Name="num" Type="Int32" Nullable="false" />
+    <Property Name="dt" Type="DateTime" Precision="3" />
+    <Property Name="testdt" Type="DateTime" Precision="3" />
+    <Property Name="endtestdt" Type="DateTime" Precision="3" />
+    <Property Name="customerid" Type="Int32" />
+    <Property Name="testobject" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="samplenum" Type="Int32" Nullable="false" />
+    <Property Name="sampledt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="endsampledt" Type="DateTime" Precision="3" />
+    <Property Name="samplerid" Type="Int32" />
+    <Property Name="samplesourceid" Type="Int32" Nullable="false" />
+    <Property Name="samplelocationid" Type="Int32" Nullable="false" />
+    <Property Name="samplelocationstr" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="sampletypeid" Type="Int32" />
+    <Property Name="sampletnpa" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="laborantid" Type="Int32" Nullable="false" />
+    <Property Name="responsibleid" Type="Int32" Nullable="false" />
+    <Property Name="startdt" Type="DateTime" Precision="3" />
+    <Property Name="enddt" Type="DateTime" Precision="3" />
+    <Property Name="isnotforpassport" Type="Boolean" Nullable="false" />
+    <Property Name="iscustomerssample" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProtocolResult_trash">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="protocolid" />
+    </Key>
+    <Property Name="logdate" Type="DateTime" Precision="3" />
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="protocolid" Type="Guid" Nullable="false" />
+    <Property Name="tempareom" Type="Double" />
+    <Property Name="tempreal" Type="Double" />
+    <Property Name="densareom" Type="Double" />
+    <Property Name="densreal" Type="Double" />
+    <Property Name="dens20" Type="Double" />
+    <Property Name="dens15" Type="Double" />
+    <Property Name="water" Type="Double" />
+    <Property Name="saltmg" Type="Double" />
+    <Property Name="mechan" Type="Double" />
+    <Property Name="sulphur" Type="Double" />
+    <Property Name="vaporpres" Type="Double" />
+    <Property Name="fr200" Type="Double" />
+    <Property Name="fr300" Type="Double" />
+    <Property Name="fr350" Type="Double" />
+    <Property Name="paraffin" Type="Double" />
+    <Property Name="hydrogen" Type="Double" />
+    <Property Name="mercaptan" Type="Double" />
+    <Property Name="organic" Type="Double" />
+    <Property Name="visc" Type="Double" />
+    <Property Name="pressure" Type="Double" />
+  </EntityType>
+  <EntityType Name="ProtocolResult_updated">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="protocolid" />
+    </Key>
+    <Property Name="logdate" Type="DateTime" Precision="3" />
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="protocolid" Type="Guid" Nullable="false" />
+    <Property Name="tempareom" Type="Double" />
+    <Property Name="tempreal" Type="Double" />
+    <Property Name="densareom" Type="Double" />
+    <Property Name="densreal" Type="Double" />
+    <Property Name="dens20" Type="Double" />
+    <Property Name="dens15" Type="Double" />
+    <Property Name="water" Type="Double" />
+    <Property Name="saltmg" Type="Double" />
+    <Property Name="mechan" Type="Double" />
+    <Property Name="sulphur" Type="Double" />
+    <Property Name="vaporpres" Type="Double" />
+    <Property Name="fr200" Type="Double" />
+    <Property Name="fr300" Type="Double" />
+    <Property Name="fr350" Type="Double" />
+    <Property Name="paraffin" Type="Double" />
+    <Property Name="hydrogen" Type="Double" />
+    <Property Name="mercaptan" Type="Double" />
+    <Property Name="organic" Type="Double" />
+    <Property Name="visc" Type="Double" />
+    <Property Name="pressure" Type="Double" />
+  </EntityType>
+  <EntityType Name="Tool_old">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="filialid" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="sernum" />
+      <PropertyRef Name="regnum" />
+      <PropertyRef Name="actual" />
+      <PropertyRef Name="gid" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="filialid" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sernum" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="regnum" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="year" Type="Int16" />
+    <Property Name="checkdate" Type="DateTime" Precision="0" />
+    <Property Name="actual" Type="Boolean" Nullable="false" />
+    <Property Name="fullname" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="gid" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="Filial" Relationship="Self.FK__Tool2__filialid__60A75C0F" FromRole="Tool_old" ToRole="Filial" />
+  </EntityType>
+  <EntityType Name="LastTanksResultMoz">
+    <Key>
+      <PropertyRef Name="tankid" />
+    </Key>
+    <Property Name="endsampledt" Type="DateTime" Precision="3" />
+    <Property Name="tankid" Type="Int32" Nullable="false" />
+    <Property Name="densreal" Type="Double" />
+    <Property Name="dens20" Type="Double" />
+    <Property Name="tempreal" Type="Double" />
+    <Property Name="water" Type="Double" />
+    <Property Name="saltmg" Type="Double" />
+    <Property Name="mechan" Type="Double" />
+  </EntityType>
+  <EntityType Name="LastTanksResultPol">
+    <Key>
+      <PropertyRef Name="sampledt" />
+      <PropertyRef Name="tankid" />
+    </Key>
+    <Property Name="sampledt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="tankid" Type="Int32" Nullable="false" />
+    <Property Name="densreal" Type="Double" />
+    <Property Name="dens20" Type="Double" />
+    <Property Name="tempreal" Type="Double" />
+    <Property Name="water" Type="Double" />
+    <Property Name="saltmg" Type="Double" />
+    <Property Name="mechan" Type="Double" />
+  </EntityType>
+  <Association Name="FK__AuthLog__userid__56E8E7AB">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="AuthActivity" Type="Self.AuthActivity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AuthActivity">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AuthHisto__useri__59C55456">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="AuthHistory" Type="Self.AuthHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AuthHistory">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Customer__filial__5441852A">
+    <End Role="Filial" Type="Self.Filial" Multiplicity="1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Filial">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="filialid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SampleLoc__filia__59FA5E80">
+    <End Role="Filial" Type="Self.Filial" Multiplicity="1" />
+    <End Role="SampleLocation" Type="Self.SampleLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Filial">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SampleLocation">
+        <PropertyRef Name="filialid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TestRoom__filial__45F365D3">
+    <End Role="Filial" Type="Self.Filial" Multiplicity="1" />
+    <End Role="Room_old" Type="Self.Room_old" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Filial">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Room_old">
+        <PropertyRef Name="filialid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tool2__filialid__44CA3770">
+    <End Role="Filial" Type="Self.Filial" Multiplicity="1" />
+    <End Role="Tool" Type="Self.Tool" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Filial">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Tool">
+        <PropertyRef Name="filialid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tool2__filialid__60A75C0F">
+    <End Role="Filial" Type="Self.Filial" Multiplicity="1" />
+    <End Role="Tool_old" Type="Self.Tool_old" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Filial">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Tool_old">
+        <PropertyRef Name="filialid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__personid__151B244E">
+    <End Role="Person" Type="Self.Person" Multiplicity="1" />
+    <End Role="Users2old" Type="Self.Users2old" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Users2old">
+        <PropertyRef Name="personid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__roleid__14270015">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="Users2old" Type="Self.Users2old" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Users2old">
+        <PropertyRef Name="roleid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__roleid__3F115E1A">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="roleid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SampleLoc__typei__5AEE82B9">
+    <End Role="SampleSource" Type="Self.SampleSource" Multiplicity="1" />
+    <End Role="SampleLocation" Type="Self.SampleLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SampleSource">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SampleLocation">
+        <PropertyRef Name="sourceid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TestTnpa2__testt__208CD6FA">
+    <End Role="TestType" Type="Self.TestType" Multiplicity="0..1" />
+    <End Role="TestTnpa" Type="Self.TestTnpa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TestType">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TestTnpa">
+        <PropertyRef Name="testtypeid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ToolType__testid__5070F446">
+    <End Role="TestType" Type="Self.TestType" Multiplicity="1" />
+    <End Role="ToolType_old" Type="Self.ToolType_old" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TestType">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ToolType_old">
+        <PropertyRef Name="testid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ToolType2__testi__489AC854">
+    <End Role="TestType" Type="Self.TestType" Multiplicity="1" />
+    <End Role="ToolType" Type="Self.ToolType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TestType">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ToolType">
+        <PropertyRef Name="testid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ToolType2__tooli__47A6A41B">
+    <End Role="Tool" Type="Self.Tool" Multiplicity="1" />
+    <End Role="ToolType" Type="Self.ToolType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tool">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ToolType">
+        <PropertyRef Name="toolid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ChemLabEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ActionLog" EntityType="Self.ActionLog" />
+    <EntitySet Name="ActionLogPassport" EntityType="Self.ActionLogPassport" />
+    <EntitySet Name="AuthActivity" EntityType="Self.AuthActivity" />
+    <EntitySet Name="AuthHistory" EntityType="Self.AuthHistory" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" />
+    <EntitySet Name="Filial" EntityType="Self.Filial" />
+    <EntitySet Name="Passport" EntityType="Self.Passport" />
+    <EntitySet Name="PassportTnpa" EntityType="Self.PassportTnpa" />
+    <EntitySet Name="Person" EntityType="Self.Person" />
+    <EntitySet Name="Protocol" EntityType="Self.Protocol" />
+    <EntitySet Name="Protocol_15062021" EntityType="Self.Protocol_15062021" />
+    <EntitySet Name="Protocol_old" EntityType="Self.Protocol_old" />
+    <EntitySet Name="ProtocolResult" EntityType="Self.ProtocolResult" />
+    <EntitySet Name="ProtocolRoom" EntityType="Self.ProtocolRoom" />
+    <EntitySet Name="ProtocolTest" EntityType="Self.ProtocolTest" />
+    <EntitySet Name="ProtocolTool" EntityType="Self.ProtocolTool" />
+    <EntitySet Name="ProtocolTool_old" EntityType="Self.ProtocolTool_old" />
+    <EntitySet Name="Recipient" EntityType="Self.Recipient" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" />
+    <EntitySet Name="Room" EntityType="Self.Room" />
+    <EntitySet Name="Room_old" EntityType="Self.Room_old" />
+    <EntitySet Name="SampleLocation" EntityType="Self.SampleLocation" />
+    <EntitySet Name="SampleSource" EntityType="Self.SampleSource" />
+    <EntitySet Name="SampleType" EntityType="Self.SampleType" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TestDensTnpa" EntityType="Self.TestDensTnpa" />
+    <EntitySet Name="TestTnpa" EntityType="Self.TestTnpa" />
+    <EntitySet Name="TestType" EntityType="Self.TestType" />
+    <EntitySet Name="Tool" EntityType="Self.Tool" />
+    <EntitySet Name="ToolType" EntityType="Self.ToolType" />
+    <EntitySet Name="ToolType_old" EntityType="Self.ToolType_old" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <EntitySet Name="Users2old" EntityType="Self.Users2old" />
+    <EntitySet Name="Protocol_trash" EntityType="Self.Protocol_trash" />
+    <EntitySet Name="Protocol_updated" EntityType="Self.Protocol_updated" />
+    <EntitySet Name="ProtocolResult_trash" EntityType="Self.ProtocolResult_trash" />
+    <EntitySet Name="ProtocolResult_updated" EntityType="Self.ProtocolResult_updated" />
+    <EntitySet Name="Tool_old" EntityType="Self.Tool_old" />
+    <EntitySet Name="LastTanksResultMoz" EntityType="Self.LastTanksResultMoz" />
+    <EntitySet Name="LastTanksResultPol" EntityType="Self.LastTanksResultPol" />
+    <AssociationSet Name="FK__AuthLog__userid__56E8E7AB" Association="Self.FK__AuthLog__userid__56E8E7AB">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="AuthActivity" EntitySet="AuthActivity" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AuthHisto__useri__59C55456" Association="Self.FK__AuthHisto__useri__59C55456">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="AuthHistory" EntitySet="AuthHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Customer__filial__5441852A" Association="Self.FK__Customer__filial__5441852A">
+      <End Role="Filial" EntitySet="Filial" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SampleLoc__filia__59FA5E80" Association="Self.FK__SampleLoc__filia__59FA5E80">
+      <End Role="Filial" EntitySet="Filial" />
+      <End Role="SampleLocation" EntitySet="SampleLocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TestRoom__filial__45F365D3" Association="Self.FK__TestRoom__filial__45F365D3">
+      <End Role="Filial" EntitySet="Filial" />
+      <End Role="Room_old" EntitySet="Room_old" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tool2__filialid__44CA3770" Association="Self.FK__Tool2__filialid__44CA3770">
+      <End Role="Filial" EntitySet="Filial" />
+      <End Role="Tool" EntitySet="Tool" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tool2__filialid__60A75C0F" Association="Self.FK__Tool2__filialid__60A75C0F">
+      <End Role="Filial" EntitySet="Filial" />
+      <End Role="Tool_old" EntitySet="Tool_old" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__personid__151B244E" Association="Self.FK__Users__personid__151B244E">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="Users2old" EntitySet="Users2old" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__roleid__14270015" Association="Self.FK__Users__roleid__14270015">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users2old" EntitySet="Users2old" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__roleid__3F115E1A" Association="Self.FK__Users__roleid__3F115E1A">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SampleLoc__typei__5AEE82B9" Association="Self.FK__SampleLoc__typei__5AEE82B9">
+      <End Role="SampleSource" EntitySet="SampleSource" />
+      <End Role="SampleLocation" EntitySet="SampleLocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TestTnpa2__testt__208CD6FA" Association="Self.FK__TestTnpa2__testt__208CD6FA">
+      <End Role="TestType" EntitySet="TestType" />
+      <End Role="TestTnpa" EntitySet="TestTnpa" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ToolType__testid__5070F446" Association="Self.FK__ToolType__testid__5070F446">
+      <End Role="TestType" EntitySet="TestType" />
+      <End Role="ToolType_old" EntitySet="ToolType_old" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ToolType2__testi__489AC854" Association="Self.FK__ToolType2__testi__489AC854">
+      <End Role="TestType" EntitySet="TestType" />
+      <End Role="ToolType" EntitySet="ToolType" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ToolType2__tooli__47A6A41B" Association="Self.FK__ToolType2__tooli__47A6A41B">
+      <End Role="Tool" EntitySet="Tool" />
+      <End Role="ToolType" EntitySet="ToolType" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(ChemLabModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(ChemLabModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

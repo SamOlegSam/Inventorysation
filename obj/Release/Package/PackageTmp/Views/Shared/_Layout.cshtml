@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инвентаризация резервуарного парка</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+</head>
+
+<body class="grad">
+
+    <style>
+        .grad {
+            background-image: url(/Image/fon7.png);
+            background-repeat: round;
+        }
+
+        /*-------------------------------------------------*/
+        a.button9 {
+            position: relative;
+            display: inline-block;
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            text-shadow: rgba(255,255,255,.5) 1px 1px, rgba(100,100,100,.3) 3px 7px 3px;
+            user-select: none;
+            padding: 1em 2em;
+            outline: none;
+            border-radius: 3px / 100%;
+            background-image: linear-gradient(45deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.8), rgba(255,255,255,.0) 70%), linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0) 20%, rgba(255,255,255,0) 90%, rgba(255,255,255,.3)), linear-gradient(to right, rgba(125,125,125,1), rgba(255,255,255,.9) 45%, rgba(125,125,125,.5)), linear-gradient(to right, rgba(125,125,125,1), rgba(255,255,255,.9) 45%, rgba(125,125,125,.5)), linear-gradient(to right, rgba(223,190,170,1), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5)), linear-gradient(to right, rgba(223,190,170,1), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5));
+            background-repeat: no-repeat;
+            background-size: 200% 100%, auto, 100% 2px, 100% 2px, 100% 1px, 100% 1px;
+            background-position: 200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+            box-shadow: rgba(0,0,0,.5) 3px 10px 10px -10px;
+        }
+
+            a.button9:hover {
+                transition: .5s linear;
+                background-position: -200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+            }
+
+            a.button9:active {
+                top: 1px;
+            }
+        /*----------------------------------------------------*/
+
+    </style>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+
+            <div class="navbar-collapse collapse">
+                @*<ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Главная", "Index", "Home")</li>
+
+                        <li>@Html.ActionLink("Калькулятор", "Calc", "Home")</li>
+                        <li>@Html.ActionLink("Градуировочные таблицы", "GradTables", "Home")</li>
+                        <li>@Html.ActionLink("Акты инвентаризации", "AktInvent", "Home")</li>
+                        <li>@Html.ActionLink("Нормативная информация", "NormInformation", "Home")</li>
+                        <li>@Html.ActionLink("Комиссия", "Kom", "Home")</li>
+                        <li>@Html.ActionLink("Справка", "Reference", "Home")</li>
+                        <li><button style="background-color: Transparent;" onclick="Reference()">Помощь</button></li>
+                        <li><button type="button" class="btn btn-primary">Главный</button></li>
+                    </ul>*@
+                <ul class="nav navbar-nav">
+                    <li><a type="button" class="button9" href="/Home/Index/">Главная</a></li>
+                    <li>&nbsp;</li>
+                    <li><a type="button" class="button9" href="/Home/Calc/">Калькулятор</a></li>
+                    <li>&nbsp;</li>
+                    <li><a type="button" class="button9" href="/Home/GradTables/">Градуировочные таблицы</a></li>
+                    <li>&nbsp;</li>
+                    <li><a type="button" class="button9" href="/Home/AktInvent/">Акты инвентаризации</a></li>
+                    <li>&nbsp;</li>
+                    <li><a type="button" class="button9" href="/Home/NormInformation/">Нормативная информация</a></li>
+                    <li>&nbsp;</li>
+                    <li><a type="button" class="button9" href="/Home/Kom/">Комиссия</a></li>
+                    <li>&nbsp;</li>
+                    <li><a type="button" class="button9" onclick="Reference()">Справка</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer style="text-align:center">
+            <p>&copy; @DateTime.Now.Year Инвентаризация нефти в резервуарном парке ЛПДС "Мозырь"</p>
+        </footer>
+    </div>
+    
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script src="~/Scripts/inventariz.js"></script>
+
+</body>
+</html>

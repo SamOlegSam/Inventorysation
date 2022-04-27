@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Inventariz.Models.TankInv>
+
+<select id="datinv" name="datinv" class="form-control">
+    <option selected value="0">Выберите дату инвентаризации</option>
+    @foreach (var item in ViewBag.SelDat)
+    {
+        <option value="@item">@item</option>
+    }
+</select>

@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище asopnModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="act">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="unitid" Type="int" Nullable="false" />
+    <Property Name="dt" Type="datetime" Nullable="false" />
+    <Property Name="dtwrite" Type="datetime" Nullable="false" />
+    <Property Name="shift" Type="int" />
+    <Property Name="number" Type="varchar" MaxLength="16" />
+    <Property Name="qpnumber" Type="varchar" MaxLength="16" />
+    <Property Name="vol" Type="float" />
+    <Property Name="volstart" Type="float" />
+    <Property Name="volend" Type="float" />
+    <Property Name="mas" Type="float" />
+    <Property Name="masstart" Type="float" />
+    <Property Name="masend" Type="float" />
+    <Property Name="t" Type="float" />
+    <Property Name="pres" Type="float" />
+    <Property Name="dens" Type="float" />
+    <Property Name="dens20" Type="float" />
+    <Property Name="masnetto" Type="float" />
+    <Property Name="masballast" Type="float" />
+    <Property Name="maslosses" Type="float" />
+    <Property Name="masborder" Type="float" />
+    <Property Name="dtsample" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="act_tank">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="dt" Type="datetime" Nullable="false" />
+    <Property Name="dtwrite" Type="datetime" Nullable="false" />
+    <Property Name="dtsample" Type="varchar" MaxLength="16" />
+    <Property Name="tank" Type="int" />
+    <Property Name="unitid" Type="int" />
+    <Property Name="number" Type="int" />
+    <Property Name="qpnumber" Type="int" />
+    <Property Name="shift" Type="int" Nullable="false" />
+    <Property Name="levelstart" Type="float" />
+    <Property Name="levelend" Type="float" />
+    <Property Name="wlevelstart" Type="float" />
+    <Property Name="wlevelend" Type="float" />
+    <Property Name="vol" Type="float" />
+    <Property Name="mas" Type="float" />
+    <Property Name="temp" Type="float" />
+    <Property Name="pres" Type="float" />
+    <Property Name="dens" Type="float" />
+    <Property Name="dens20" Type="float" />
+    <Property Name="masnetto" Type="float" />
+    <Property Name="masbalast" Type="float" />
+    <Property Name="qpid" Type="uniqueidentifier" />
+    <Property Name="maslosses" Type="float" />
+    <Property Name="masborder" Type="float" />
+  </EntityType>
+  <EntityType Name="calibration">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tankid" Type="int" Nullable="false" />
+    <Property Name="oillevel" Type="int" Nullable="false" />
+    <Property Name="oilvolume" Type="float" Nullable="false" />
+    <Property Name="filialid" Type="int" />
+  </EntityType>
+  <EntityType Name="filials">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="oper">
+    <Key>
+      <PropertyRef Name="type" />
+      <PropertyRef Name="unitid" />
+      <PropertyRef Name="dt" />
+      <PropertyRef Name="line" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" />
+    <Property Name="type" Type="smallint" Nullable="false" />
+    <Property Name="unitid" Type="int" Nullable="false" />
+    <Property Name="dt" Type="datetime" Nullable="false" />
+    <Property Name="dtwrite" Type="datetime" Nullable="false" />
+    <Property Name="line" Type="int" Nullable="false" />
+    <Property Name="volhour" Type="float" />
+    <Property Name="voltotal" Type="float" />
+    <Property Name="mashour" Type="float" />
+    <Property Name="mastotal" Type="float" />
+    <Property Name="t" Type="float" />
+    <Property Name="pres" Type="float" />
+    <Property Name="dens" Type="float" />
+    <Property Name="dens20" Type="float" />
+    <Property Name="dens15" Type="float" />
+    <Property Name="tbik" Type="float" />
+    <Property Name="presbik" Type="float" />
+    <Property Name="vol20" Type="float" />
+    <Property Name="vol15" Type="float" />
+    <Property Name="visc" Type="float" />
+  </EntityType>
+  <EntityType Name="Podpisanty">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDFilial" Type="int" />
+    <Property Name="Doljnost" Type="nchar" MaxLength="50" />
+    <Property Name="FIO" Type="nchar" MaxLength="50" />
+    <Property Name="Nazn" Type="nchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="qpass">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="unitid" Type="int" Nullable="false" />
+    <Property Name="dt" Type="datetime" Nullable="false" />
+    <Property Name="dtwrite" Type="datetime" Nullable="false" />
+    <Property Name="dtsample" Type="varchar" MaxLength="50" />
+    <Property Name="number" Type="nvarchar" MaxLength="16" Nullable="false" />
+    <Property Name="shift" Type="int" />
+    <Property Name="t" Type="float" />
+    <Property Name="pres" Type="float" />
+    <Property Name="dens" Type="float" />
+    <Property Name="dens20" Type="float" />
+    <Property Name="dens15" Type="float" />
+    <Property Name="water" Type="float" />
+    <Property Name="saltmg" Type="float" />
+    <Property Name="saltprc" Type="float" />
+    <Property Name="mechan" Type="float" />
+    <Property Name="sulphur" Type="float" />
+    <Property Name="vaporpres" Type="float" />
+    <Property Name="ballast" Type="float" />
+    <Property Name="fr200" Type="float" />
+    <Property Name="fr300" Type="float" />
+    <Property Name="fr350" Type="float" />
+    <Property Name="paraffin" Type="float" />
+    <Property Name="hydrogen" Type="float" />
+    <Property Name="mercaptan" Type="float" />
+    <Property Name="organic" Type="float" />
+    <Property Name="mercaptanstr" Type="varchar" MaxLength="10" />
+    <Property Name="organicstr" Type="varchar" MaxLength="10" />
+    <Property Name="designpet" Type="varchar" MaxLength="32" />
+    <Property Name="laborant" Type="varchar" MaxLength="50" />
+    <Property Name="operator" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="qpass_tank">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="dt" Type="datetime" Nullable="false" />
+    <Property Name="dtwrite" Type="datetime" Nullable="false" />
+    <Property Name="dtclose" Type="datetime" />
+    <Property Name="levelsclose" Type="varchar" MaxLength="11" />
+    <Property Name="tank" Type="int" />
+    <Property Name="number" Type="nvarchar" MaxLength="16" Nullable="false" />
+    <Property Name="densar" Type="float" />
+    <Property Name="tempar" Type="float" />
+    <Property Name="pres" Type="float" />
+    <Property Name="temp" Type="float" />
+    <Property Name="dens" Type="float" />
+    <Property Name="dens20" Type="float" />
+    <Property Name="dens15" Type="float" />
+    <Property Name="water" Type="float" />
+    <Property Name="saltmg" Type="float" />
+    <Property Name="saltprc" Type="float" />
+    <Property Name="mechan" Type="float" />
+    <Property Name="sulphur" Type="float" />
+    <Property Name="visc" Type="float" />
+    <Property Name="fr200" Type="float" />
+    <Property Name="fr300" Type="float" />
+    <Property Name="fr350" Type="float" />
+    <Property Name="vaporpres" Type="float" />
+    <Property Name="paraffin" Type="float" />
+    <Property Name="hydrogen" Type="float" />
+    <Property Name="mercaptan" Type="float" />
+    <Property Name="organic" Type="float" />
+    <Property Name="mercaptan_str" Type="varchar" MaxLength="10" />
+    <Property Name="organic_str" Type="varchar" MaxLength="10" />
+    <Property Name="designpet" Type="varchar" MaxLength="50" />
+    <Property Name="operatorid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="user" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="shift">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="unitid" Type="int" Nullable="false" />
+    <Property Name="dt" Type="datetime" Nullable="false" />
+    <Property Name="dtwrite" Type="datetime" Nullable="false" />
+    <Property Name="shift" Type="int" Nullable="false" />
+    <Property Name="vol" Type="float" />
+    <Property Name="volstart" Type="float" />
+    <Property Name="volend" Type="float" />
+    <Property Name="mas" Type="float" />
+    <Property Name="masstart" Type="float" />
+    <Property Name="masend" Type="float" />
+    <Property Name="t" Type="float" />
+    <Property Name="pres" Type="float" />
+    <Property Name="dens" Type="float" />
+    <Property Name="dens20" Type="float" />
+    <Property Name="dens15" Type="float" />
+    <Property Name="vol20" Type="float" />
+    <Property Name="vol15" Type="float" />
+    <Property Name="masnetto" Type="float" />
+    <Property Name="masballast" Type="float" />
+    <Property Name="dtstart" Type="datetime" />
+    <Property Name="actnumber" Type="varchar" MaxLength="16" />
+    <Property Name="omniid" Type="varchar" MaxLength="16" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="taginfo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dt" Type="datetime" Nullable="false" />
+    <Property Name="dtwrite" Type="datetime" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="value" Type="float" />
+  </EntityType>
+  <EntityType Name="tags">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tankinfo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dt" Type="datetime" Nullable="false" />
+    <Property Name="dtwrite" Type="datetime" Nullable="false" />
+    <Property Name="filialid" Type="int" Nullable="false" />
+    <Property Name="tankid" Type="int" Nullable="false" />
+    <Property Name="level" Type="int" />
+    <Property Name="t" Type="float" />
+  </EntityType>
+  <EntityType Name="TankInv">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="Filial" Type="int" Nullable="false" />
+    <Property Name="Rezer" Type="int" Nullable="false" />
+    <Property Name="Urov" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="UrovH2O" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="UrovNeft" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="VNeft" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="Temp" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="P" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="MassaBrutto" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="H2O" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="Salt" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="Meh" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="BalProc" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="BalTonn" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="MassaNetto" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="HMim" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="VMin" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="MBalMin" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="MNettoMin" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="VTeh" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="MBalTeh" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="MNettoTeh" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="MNettoTov" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="type" Type="int" Nullable="false" />
+    <Property Name="V" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+    <Property Name="VH2O" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tanktags">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="level" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="t" Type="varchar" MaxLength="50" />
+    <Property Name="filialid" Type="int" />
+    <Property Name="tankid" Type="int" />
+    <Property Name="typeid" Type="smallint" />
+    <Property Name="enable" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "asopn.dbo.trl_tank" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="trl_tank">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="TypeID" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="TypeID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MinDopLevel" Type="float" />
+    <Property Name="MinDopVol" Type="float" />
+    <Property Name="MaxVolume" Type="float" />
+    <Property Name="grdTemper" Type="float" />
+    <Property Name="volCoef" Type="float" />
+    <Property Name="WorkVolume" Type="float" />
+    <Property Name="TankID" Type="int" />
+    <Property Name="FilialID" Type="int" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "asopn.dbo.trl_tanktype" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="trl_tanktype">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsSteel" Type="smallint" />
+  </EntityType>
+  <EntityType Name="twohours">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="unitid" Type="int" Nullable="false" />
+    <Property Name="dt" Type="datetime" Nullable="false" />
+    <Property Name="dtwrite" Type="datetime" Nullable="false" />
+    <Property Name="h2" Type="int" Nullable="false" />
+    <Property Name="h4" Type="int" Nullable="false" />
+    <Property Name="h6" Type="int" Nullable="false" />
+    <Property Name="h8" Type="int" Nullable="false" />
+    <Property Name="h10" Type="int" Nullable="false" />
+    <Property Name="h12" Type="int" Nullable="false" />
+    <Property Name="h14" Type="int" Nullable="false" />
+    <Property Name="h16" Type="int" Nullable="false" />
+    <Property Name="h18" Type="int" Nullable="false" />
+    <Property Name="h20" Type="int" Nullable="false" />
+    <Property Name="h22" Type="int" Nullable="false" />
+    <Property Name="h24" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="twohoursconf">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="unitid" Type="int" Nullable="false" />
+    <Property Name="tag" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="hour" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="units">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="filialid" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "asopn.dbo.trl_tankview" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="trl_tankview">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="TypeID" />
+      <PropertyRef Name="TypeName" />
+      <PropertyRef Name="TankName" />
+      <PropertyRef Name="name" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="TypeID" Type="int" Nullable="false" />
+    <Property Name="TypeName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TankName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MinDopLevel" Type="float" />
+    <Property Name="MinDopVol" Type="float" />
+    <Property Name="grdTemper" Type="float" />
+    <Property Name="volCoef" Type="float" />
+    <Property Name="MaxVolume" Type="float" />
+    <Property Name="WorkVolume" Type="float" />
+    <Property Name="TankID" Type="int" />
+    <Property Name="FilialID" Type="int" />
+    <Property Name="name" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="IsSteel" Type="smallint" />
+  </EntityType>
+  <Association Name="FK__units__filialid__628FA481">
+    <End Role="filials" Type="Self.filials" Multiplicity="1" />
+    <End Role="units" Type="Self.units" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="filials">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="units">
+        <PropertyRef Name="filialid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Podpisanty_filials">
+    <End Role="filials" Type="Self.filials" Multiplicity="0..1" />
+    <End Role="Podpisanty" Type="Self.Podpisanty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="filials">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Podpisanty">
+        <PropertyRef Name="IDFilial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище asopnModelContainer">
+    <EntitySet Name="act" EntityType="Self.act" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="act_tank" EntityType="Self.act_tank" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="calibration" EntityType="Self.calibration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="filials" EntityType="Self.filials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="oper" EntityType="Self.oper" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Podpisanty" EntityType="Self.Podpisanty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="qpass" EntityType="Self.qpass" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="qpass_tank" EntityType="Self.qpass_tank" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="shift" EntityType="Self.shift" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="taginfo" EntityType="Self.taginfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tags" EntityType="Self.tags" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tankinfo" EntityType="Self.tankinfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TankInv" EntityType="Self.TankInv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tanktags" EntityType="Self.tanktags" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="twohours" EntityType="Self.twohours" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="twohoursconf" EntityType="Self.twohoursconf" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="units" EntityType="Self.units" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="trl_tank" EntityType="Self.trl_tank" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [trl_tank].[ID] AS [ID], 
+    [trl_tank].[TypeID] AS [TypeID], 
+    [trl_tank].[Name] AS [Name], 
+    [trl_tank].[MinDopLevel] AS [MinDopLevel], 
+    [trl_tank].[MinDopVol] AS [MinDopVol], 
+    [trl_tank].[MaxVolume] AS [MaxVolume], 
+    [trl_tank].[grdTemper] AS [grdTemper], 
+    [trl_tank].[volCoef] AS [volCoef], 
+    [trl_tank].[WorkVolume] AS [WorkVolume], 
+    [trl_tank].[TankID] AS [TankID], 
+    [trl_tank].[FilialID] AS [FilialID]
+    FROM [dbo].[trl_tank] AS [trl_tank]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="trl_tanktype" EntityType="Self.trl_tanktype" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [trl_tanktype].[ID] AS [ID], 
+    [trl_tanktype].[Name] AS [Name], 
+    [trl_tanktype].[IsSteel] AS [IsSteel]
+    FROM [dbo].[trl_tanktype] AS [trl_tanktype]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="trl_tankview" EntityType="Self.trl_tankview" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [trl_tankview].[ID] AS [ID], 
+    [trl_tankview].[TypeID] AS [TypeID], 
+    [trl_tankview].[TypeName] AS [TypeName], 
+    [trl_tankview].[TankName] AS [TankName], 
+    [trl_tankview].[MinDopLevel] AS [MinDopLevel], 
+    [trl_tankview].[MinDopVol] AS [MinDopVol], 
+    [trl_tankview].[grdTemper] AS [grdTemper], 
+    [trl_tankview].[volCoef] AS [volCoef], 
+    [trl_tankview].[MaxVolume] AS [MaxVolume], 
+    [trl_tankview].[WorkVolume] AS [WorkVolume], 
+    [trl_tankview].[TankID] AS [TankID], 
+    [trl_tankview].[FilialID] AS [FilialID], 
+    [trl_tankview].[name] AS [name], 
+    [trl_tankview].[IsSteel] AS [IsSteel]
+    FROM [dbo].[trl_tankview] AS [trl_tankview]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__units__filialid__628FA481" Association="Self.FK__units__filialid__628FA481">
+      <End Role="filials" EntitySet="filials" />
+      <End Role="units" EntitySet="units" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Podpisanty_filials" Association="Self.FK_Podpisanty_filials">
+      <End Role="filials" EntitySet="filials" />
+      <End Role="Podpisanty" EntitySet="Podpisanty" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

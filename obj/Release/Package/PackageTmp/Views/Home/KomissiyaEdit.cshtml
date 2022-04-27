@@ -1,0 +1,32 @@
+﻿@model Inventariz.Models.Podpisanty
+
+<div class="modal-header" style="text-align: center; background-color: #D0EDFE; border-radius:5px;">
+    <h5> Редактирование члена комиссии</h5>
+</div>
+<div class="modal-body">
+
+    @*<label>ID записи</label>*@
+    <input type="hidden" class="form-control btn-block" id="ID" value="@Model.ID" />
+
+    <label>Назначение</label>
+    <select id="Nazn" class="form-control btn-block">
+        <option>Председатель комиссии</option>
+        <option>Член комиссии</option>
+        <option>МОЛ</option>
+    </select>
+
+    <label>Должность</label>
+    <input type="text" class="form-control btn-block" id="Doljnost" value="@Model.Doljnost" />
+
+    <label>ФИО</label>
+    <input type="text" class="form-control btn-block" id="FIO" value="@Model.FIO" />
+
+</div>
+<div class="modal-footer" style="text-align:center">
+    <button type="submit" class="btn btn-info" style="min-width:100px" onclick="KomissiyaEditSave(@Model.ID)">Сохранить</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal" style="min-width:100px">Отмена</button>
+</div>
+
+
+
+

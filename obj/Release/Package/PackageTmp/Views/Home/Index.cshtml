@@ -1,0 +1,222 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div id="ServicesModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content" id='ServicesModalContent'>
+
+        </div>
+    </div>
+</div>
+
+<div id="ServicesModalDelete" class="modal fade">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content" id='ServicesModalDeleteContent'>
+
+        </div>
+    </div>
+</div>
+<center><h2>Инвентаризация нефти в резервуарном парке ОАО "Гомельтранснефть Дружба"</h2></center>
+@*<center><img src="/Image/rez.png" width="1200"></center>*@
+
+    @*<style type="text/css" >
+    .avd_div {
+        margin: 30px auto;
+        padding: 0;
+        text-align: center;
+        display: block;
+    }
+
+    .bucn_4_s, .bucn_4_s:before {
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -o-border-radius: 10px;
+        border-radius: 10px;
+    }
+
+    .bucn_4_s {
+        text-decoration: none;
+        outline: none;
+        display: inline-block;
+        position: relative;
+        padding: 10px 70px;
+        font-size: 30px;
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        overflow: hidden;
+        letter-spacing: 2px;
+        transition: .8s cubic-bezier(.165,.84,.44,1);
+        -webkit-box-shadow: 0 0 4px #999;
+        -moz-box-shadow: 0 0 4px #999;
+        -o-box-shadow: 0 0 4px #999;
+        box-shadow: 0 0 4px #999;
+        z-index: 1;
+        color: #188cb6;
+        background-color: #fff;
+        background-image: linear-gradient(135deg, #0b7fa9, #fff, #fff, #0b7fa9);
+        background-image: -o-linear-gradient(135deg, #0b7fa9, #fff, #fff, #0b7fa9);
+        background-image: -moz-linear-gradient(135deg, #0b7fa9, #fff, #fff, #0b7fa9);
+        background-image: -webkit-linear-gradient(135deg, #0b7fa9, #fff, #fff, #0b7fa9);
+        background-image: -ms-linear-gradient(135deg, #0b7fa9, #fff, #fff, #0b7fa9);
+        border: 1px solid #188cb6;
+        
+    }
+
+        .bucn_4_s:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 0;
+            width: 100%;
+            z-index: -1;
+            color: #fff;
+            transition: .8s cubic-bezier(.165,.84,.44,1);
+            background-color: #0b7fa9;
+            background-image: linear-gradient(135deg, #fff, #0b7fa9, #0b7fa9, #fff);
+            background-image: -o-linear-gradient(135deg, #fff, #0b7fa9, #0b7fa9, #fff);
+            background-image: -moz-linear-gradient(135deg, #fff, #0b7fa9, #0b7fa9, #fff);
+            background-image: -webkit-linear-gradient(135deg, #fff, #0b7fa9, #0b7fa9, #fff);
+            background-image: -ms-linear-gradient(135deg, #fff, #0b7fa9, #0b7fa9, #fff);
+        }
+
+        .bucn_4_s:hover:before {
+            top: 0%;
+            bottom: auto;
+            height: 100%;
+        }
+
+        .bucn_4_s:hover, .bucn_4_s:active {
+            color: #fff;
+            text-shadow: 0 1px 2px #333;
+        }
+
+    *::before, *::after {
+        box-sizing: border-box;
+    }
+</style>*@
+
+    @*<div class="avd_div">
+        <a href="/Home/Calc/" class="bucn_4_s" style="width:1000px; height:100px;">КАЛЬКУЛЯТОР</a>
+        <a href="/Home/GradTables/" class="bucn_4_s" style="width:1000px; height:100px;">ГРАДУИРОВОЧНЫЕ ТАБЛИЦЫ</a>
+        <a href="/Home/AktInvent/" class="bucn_4_s" style="width:1000px; height:100px;">АКТЫ ИНВЕНТАРИЗАЦИИ</a>
+        <a href="/Home/NormInformation/" class="bucn_4_s" style="width:1000px; height:100px;">НОРМАТИВНАЯ ИНФОРМАЦИЯ</a>
+        <a href="/Home/Kom/" class="bucn_4_s" style="width:1000px; height:100px;">КОМИССИЯ</a>
+        
+    </div>*@
+
+
+@*<div id="carousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="/images/0001.jpg">
+            </div>
+            <div class="item">
+                <img src="/images/0002.jpg">
+            </div>
+            <div class="item">
+                <img src="/images/0003.jpg">
+            </div>
+            <div class="item">
+                <img src="/images/0004.jpg">
+            </div>
+            <div class="item">
+                <img src="/images/0005.jpg">
+            </div>
+            <div class="item">
+                <img src="/images/0006.jpg">
+            </div>
+            <div class="item">
+                <img src="/images/0007.jpg">
+            </div>
+            <div class="item">
+                <img src="/images/0009.jpg">
+            </div>
+
+        </div>
+    </div>*@
+
+@*<img src="/image/Tab.png" width="1200px;">*@
+@*<p><img src="/image/fonhome.png" width="100%"></p>*@
+<hr>
+<center>
+    <table>
+        <tr>
+            <td>
+                <h4><b>Объем нефти в РП ЛПДС "Мозырь", (м<sup><small>3</small></sup>)</b></h4>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+                <h4><b>Объем нефти в РП ФПТН "Новополоцк", (м<sup><small>3</small></sup>)</b></h4>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><center><h4><b>на @ViewBag.DatHour</b></h4></center></td>
+            <td>
+                
+            </td>
+            <td>&nbsp;</td>
+            <td><center><h4><b>на @ViewBag.DatHour</b></h4></center></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>
+                &nbsp;
+            </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><input type="text" readonly style="width:100%;" class="form-control btn-block" value="@ViewBag.VNeftItog1"></td>
+            <td></td>
+            <td>&nbsp;</td>
+            <td><input type="text" readonly style="width:100%;" class="form-control btn-block" value="@ViewBag.VNeftItog2"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>
+                <p><img src="/image/fonhead.png" width="350px;"></p>
+            </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>
+                <h4><center><b>Суммарный объем нефти в РП (м<sup><small>3</small></sup>)</b></center></h4>
+            </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><center><h4><b>на @ViewBag.DatHour</b></h4></center></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><center><input type="text" readonly style="width:100%;" class="form-control btn-block" value="@ViewBag.SumNeft"></center></td>
+            <td></td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+</center>

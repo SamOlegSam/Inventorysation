@@ -1,0 +1,19 @@
+﻿@model Inventariz.Models.Podpisanty
+
+<div class="modal-header" style="background-color:#FED5D0; border-radius:5px;">
+    <button class="close" data-dismiss="modal" area-hidden="true"><i class="fa fa-close"></i></button>
+    <h5 style="text-align:center">Удаление</h5>
+</div>
+<div class="modal-body" style="text-align: center">
+
+
+    <h5>Вы точно хотите удалить "@Model.FIO"?</h5>
+
+</div>
+<div class="modal-footer" style="text-align: center">
+    <button type="submit" class="btn btn-danger" style="min-width:100px" onclick="DeletePodpisOK(@Model.ID)">Да</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal" style="min-width:100px">Нет</button>
+</div>
+
+
+

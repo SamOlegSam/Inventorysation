@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Inventariz.Models.Podpisanty>
+<h3>Комиссия</h3>
+<hr>
+
+<div id="ServicesModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content" id='ServicesModalContent'>
+
+        </div>
+    </div>
+</div>
+
+<div id="ServicesModalDelete" class="modal fade">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content" id='ServicesModalDeleteContent'>
+
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    TH {
+        background: #EFF5FB; /* Цвет фона */
+        border-bottom: double;
+    }
+
+    tr:nth-child(odd) {
+        background: #EFF5FB; /* Цвет фона */
+    }
+
+    tr:nth-child(even) {
+        background: #ffffff; /* Цвет фона */
+    }
+</style>
+
+<p>
+    <button type="button" class="btn btn-gradient waves-light waves-effect w-xs" onclick="AddKomissiya(0)"><i class="mdi mdi-library-plus"></i> Добавить члена комиссии</button>
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            Назначение
+        </th>
+
+        <th>
+            Должность
+        </th>
+
+        <th>
+            ФИО
+        </th>
+
+        <th>
+            Филиал
+        </th>
+        <th>
+            &nbsp;
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doljnost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FIO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.filials.name)
+            </td>
+
+            <td>
+                <button type="button" class="btn btn-icon waves-effect waves-light btn-info" onclick="KomissiyaEdit(@item.ID)"> <i class="mdi mdi-settings"></i>Редактировать</button>
+                <button type="button" class="btn btn-icon waves-effect waves-light btn-danger" onclick="DeletePodpis(@item.ID)"> <i class="mdi mdi-delete"></i>Удалить</button>
+            </td>
+        </tr>
+    }
+
+</table>

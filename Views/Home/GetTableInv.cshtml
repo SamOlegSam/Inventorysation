@@ -1,0 +1,325 @@
+﻿@model IEnumerable<Inventariz.Models.TankInv>
+
+
+<table class="table" id="tabb" border="1">
+
+    <tr>
+        <th rowspan="4">№ рез.</th>
+        <th rowspan="3">Общий уровень нефти</th>
+        <th rowspan="3">Уровень H2O</th>
+        <th rowspan="3">Общий объем</th>
+        <th rowspan="3">Объем H2O</th>
+        <th rowspan="3">Объем нефти</th>
+        <th rowspan="3">Средн.темп</th>
+        <th rowspan="3">Р нефти</th>
+        <th rowspan="3">Масса брутто нефти</th>
+        <th colspan="5">Содержание баласта</th>
+        <th rowspan="3">Масса нефти нетто</th>
+        <th colspan="5">В том числе остатки в резервуарах</th>
+        <th rowspan="4"></th>
+    </tr>
+
+    <tr>
+        <th rowspan="2">Вода</th>
+        <th rowspan="2">Соль</th>
+        <th rowspan="2">Мех.прим.</th>
+        <th colspan="2">Всего</th>
+        <th colspan="4">Технологический</th>
+        <th>Товарный</th>
+    </tr>
+
+    <tr>
+        <th></th>
+        <th></th>
+        <th>Нижний нормат. уровень</th>
+        <th>V по нижнему норм.уровню</th>
+        <th>Масса брутто</th>
+        <th>Масса нетто</th>
+        <th>Масса нетто</th>
+    </tr>
+
+    <tr>
+        <th>мм</th>
+        <th>мм</th>
+        <th>м3</th>
+        <th>м3</th>
+        <th>м3</th>
+        <th>гр.С</th>
+        <th>кг/м3</th>
+        <th>т</th>
+        <th>%</th>
+        <th>%</th>
+        <th>%</th>
+        <th>%</th>
+        <th>т</th>
+        <th>т</th>
+        <th>мм</th>
+        <th>м3</th>
+        <th>т</th>
+        <th>т</th>
+        <th>т</th>
+    </tr>
+
+    <!--@{
+            int u = 0;
+        }
+
+        @foreach (var item in ViewBag.TableInv)
+        {
+            u++;
+
+            <tr tr class="odd">
+
+                <td>
+                    @item.Rezer
+                </td>
+                <td>
+                    @item.Urov
+                </td>
+                <td>
+                    @item.UrovH2O
+                </td>
+                <td>
+                    @item.V
+                </td>
+                <td>
+                    @item.VH2O
+                </td>
+                <td>
+                    @item.VNeft
+                </td>
+                <td>
+                    @item.Temp
+                </td>
+                <td>
+                    @item.P
+                </td>
+                <td>
+                    @item.MassaBrutto
+                </td>
+                <td>
+                    @item.H2O
+                </td>
+                <td>
+                    @item.Salt
+                </td>
+                <td>
+                    @item.Meh
+                </td>
+                <td>
+                    @item.BalProc
+                </td>
+                <td>
+                    @item.BalTonn
+                </td>
+                <td>
+                    @item.MassaNetto
+                </td>
+                <td>
+                    @item.HMim
+                </td>
+                <td>
+                    @item.VMin
+                </td>
+                <td>
+                    @item.MBalMin
+                </td>
+                <td>
+                     @item.MBalMin
+                </td>
+                <td>
+                     @item.MBalMin
+                </td>
+                <td>
+                    <button type="button" class="btn btn-icon waves-effect waves-light btn-info" title="Редактировать" onclick="InventEdit(@item.Id)">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                </td>
+
+            </tr>
+        }
+    </table>-->
+    @*-----------------------------------------------------*@
+
+    <!--<table class="table" id="tabb" border="1">-->
+    @foreach (int i in ViewBag.typ)
+    {
+        int kol = 0;
+        double VNeftItog1 = 0;
+        double PSred1 = 0;
+        double MassaBalItog1 = 0;
+        double BalProcSred1 = 0;
+        double BalTonnItog1 = 0;
+        double MassaNettoItog1 = 0;
+        double MassaBalMinItog1 = 0;
+        double MassaNettoMinItog1 = 0;
+
+        foreach (var item in Model.Where(h => h.type == i))
+        {
+            <tr tr class="odd">
+                <td>
+                    @item.Rezer
+                </td>
+                <td>
+                    @item.Urov
+                </td>
+                <td>
+                    @item.UrovH2O
+                </td>
+                <td>
+                    @item.V
+                </td>
+                <td>
+                    @item.VH2O
+                </td>
+                <td>
+                    @item.VNeft
+                </td>
+                <td>
+                    @item.Temp
+                </td>
+                <td>
+                    @item.P
+                </td>
+                <td>
+                    @item.MassaBrutto
+                </td>
+                <td>
+                    @item.H2O
+                </td>
+                <td>
+                    @item.Salt
+                </td>
+                <td>
+                    @item.Meh
+                </td>
+                <td>
+                    @item.BalProc
+                </td>
+                <td>
+                    @item.BalTonn
+                </td>
+                <td>
+                    @item.MassaNetto
+                </td>
+                <td>
+                    @item.HMim
+                </td>
+                <td>
+                    @item.VMin
+                </td>
+                <td>
+                    @item.MBalMin
+                </td>
+                <td>
+                    @item.MNettoMin
+                </td>
+                <td>
+                    
+                </td>
+                <td>
+                    <button type="button" class="btn btn-icon waves-effect waves-light btn-info" title="Редактировать" onclick="InventEdit(@item.Id)">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                </td>
+            </tr>
+            kol++;
+            VNeftItog1 = VNeftItog1 + Convert.ToDouble(item.VNeft);
+            PSred1 = Convert.ToDouble(item.P) + PSred1;
+            MassaBalItog1 = MassaBalItog1 + Convert.ToDouble(item.MassaBrutto);
+            BalProcSred1 = BalProcSred1 + Convert.ToDouble(item.BalProc);
+            BalTonnItog1 = BalTonnItog1 + Convert.ToDouble(item.BalTonn);
+            MassaNettoItog1 = MassaNettoItog1 + Convert.ToDouble(item.MassaNetto);
+            MassaBalMinItog1 = MassaBalMinItog1 + Convert.ToDouble(item.MBalMin);
+            MassaNettoMinItog1 = MassaNettoMinItog1 + Convert.ToDouble(item.MNettoMin);
+
+        }
+        <tr>
+            <td colspan="5" style="background-color:aquamarine;">
+                ИТОГО ПО ГРУППЕ:
+            </td>
+            <td style="background-color:aquamarine;">
+                @VNeftItog1
+            </td>
+            <td style="background-color:aquamarine;">
+            </td>
+            <td style="background-color:aquamarine;">
+                @Math.Round((PSred1/kol), 1)               
+            </td>
+            <td style="background-color:aquamarine;">
+                @MassaBalItog1
+            </td>
+            <td style="background-color:aquamarine;">
+            </td>
+            <td style="background-color:aquamarine;">
+            </td>
+            <td style="background-color:aquamarine;">
+            </td>
+            <td style="background-color:aquamarine;">
+            </td>
+            <td style="background-color:aquamarine;">
+                @BalTonnItog1
+            </td>
+            <td style="background-color:aquamarine;">
+                @MassaNettoItog1
+            </td>
+            <td style="background-color:aquamarine;">
+            </td>
+            <td style="background-color:aquamarine;">
+            </td>
+            <td style="background-color:aquamarine;">
+            </td>
+            <td style="background-color:aquamarine;">
+                @MassaNettoMinItog1
+            </td>
+            <td style="background-color:aquamarine;">                
+            </td>
+            <td style="background-color:aquamarine;">
+            </td>
+        </tr>
+    }
+    <tr>
+        <td colspan="5" style="background-color:deepskyblue;">
+            ИТОГО:
+        </td>
+        <td style="background-color: deepskyblue; ">
+            @ViewBag.VNeftItog1
+        </td>
+        <td style="background-color: deepskyblue; ">
+        </td>
+        <td style="background-color: deepskyblue; ">
+            @ViewBag.PSred1
+        </td>
+        <td style="background-color: deepskyblue; ">
+            @ViewBag.MassaBalItog1
+        </td>
+        <td style="background-color: deepskyblue; ">
+        </td>
+        <td style="background-color: deepskyblue; ">
+        </td>
+        <td style="background-color: deepskyblue; ">
+        </td>
+        <td style="background-color: deepskyblue; ">
+        </td>
+        <td style="background-color: deepskyblue; ">
+            @ViewBag.BalTonnItog1
+        </td>
+        <td style="background-color: deepskyblue; ">
+            @ViewBag.MassaNettoItog1
+        </td>
+        <td style="background-color: deepskyblue; ">
+        </td>
+        <td style="background-color: deepskyblue; ">
+        </td>
+        <td style="background-color: deepskyblue; ">
+        </td>
+        <td style="background-color: deepskyblue; ">
+            @ViewBag.MassaNettoMinItog1
+        </td>
+        <td style="background-color: deepskyblue; ">
+            @(ViewBag.MassaNettoItog1 - ViewBag.MassaNettoMinItog1)
+        </td>
+        <td style="background-color: deepskyblue; ">
+        </td>
+    </tr>
+</table>

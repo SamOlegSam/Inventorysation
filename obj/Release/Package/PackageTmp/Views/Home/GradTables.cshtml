@@ -1,0 +1,64 @@
+﻿
+
+<h3>Градуировочные таблицы</h3>
+<hr>
+<div id="ServicesModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content" id='ServicesModalContent'>
+
+        </div>
+    </div>
+</div>
+
+<div id="ServicesModalDelete" class="modal fade">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content" id='ServicesModalDeleteContent'>
+
+        </div>
+    </div>
+</div>
+<table>
+    <tr>
+        <td>
+                @Html.DropDownList("name", ViewBag.podr as SelectList, "Выберите филиал", new { @class = "form-control btn-block", id = "filial" })
+                </td>
+                <td>
+                    &nbsp;&nbsp;</td>
+                <td>
+                 @*   @Html.DropDownList("TankName"+"TypeName" , ViewBag.rezer as SelectList, "Выберите резервуар", new { @class = "form-control btn-block", id = "rezer" })*@
+
+                    <select id="rezer" name="rezer" class="form-control">
+                    <option selected value="0">Выберите резервуар</option>
+                      </select>
+
+                </td>
+                <td>&nbsp;&nbsp;</td>
+                <td>
+                    <button type="button" onclick="GetGradTable()" class="btn btn-default">Показать</button>
+                </td>
+            </tr>      
+</table>
+<hr>
+<p>
+    <button type="button" class="btn btn-gradient waves-light waves-effect w-xs" onclick="AddGradTable(0)"><i class="mdi mdi-library-plus"></i> Добавить запись</button>
+</p>
+
+<div id="GradTab">
+
+</div>
+<script>
+
+    $(function d() {
+        $('#filial').change(function d() {
+            var ID = $(this).val();
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetRezerv")/' + ID,
+                success: function d(data) {
+                    $('#rezer').replaceWith(data);
+                }
+            });
+        });
+    })
+</script>
+

@@ -1,0 +1,90 @@
+﻿
+<h3>Акты инвентаризации</h3>
+
+<div id="ServicesModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content" id='ServicesModalContent'>
+
+        </div>
+    </div>
+</div>
+
+<div id="ServicesModalDelete" class="modal fade">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content" id='ServicesModalDeleteContent'>
+
+        </div>
+    </div>
+</div>
+
+<table>
+    <tr>
+        <td>
+            @Html.DropDownList("name", ViewBag.podr1 as SelectList, "Выберите филиал", new { @class = "form-control btn-block", id = "filial1" })
+        </td>
+        <td>
+            &nbsp;&nbsp;
+        </td>
+        <td>
+            <select id="datinv" name="datinv" class="form-control">
+                <option selected value="0">Выберите дату инвентаризации</option>
+            </select>
+
+        </td>
+        <td>&nbsp;&nbsp;</td>
+        <td>
+            <button type="button" onclick="GetTableInv()" class="btn btn-default">Показать</button>
+        </td>
+        <td>&nbsp;&nbsp;</td>
+        <td>
+            <button type="button" class="btn btn-default" onclick="Report()">Акт инвентаризации(.XLS)</button>
+        </td>
+    </tr>
+</table>
+<hr>
+@*------------------------------------------------------------------------------------*@
+
+<style type="text/css">
+    TH {
+        background: #EFF5FB; /* Цвет фона */
+        border-bottom: double;
+    }
+
+    tr:nth-child(odd) {
+        background: #EFF5FB; /* Цвет фона */
+    }
+
+    tr:nth-child(even) {
+        background: #ffffff; /* Цвет фона */
+    }
+</style>
+
+
+<div id="tab">
+
+
+
+    <div id="Tableinv">
+
+    </div>
+</div>
+@*------------------------------------------------------------------------------------*@
+
+
+
+
+<script>
+
+    $(function d() {
+        $('#filial1').change(function d() {
+            var ID = $(this).val();
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetDatInv")/' + ID,
+                success: function d(data) {
+                    $('#datinv').replaceWith(data);
+                }
+            });
+        });
+    })
+</script>

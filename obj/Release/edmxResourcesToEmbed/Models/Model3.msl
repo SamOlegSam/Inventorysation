@@ -1,0 +1,635 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ChemLabModelContainer" CdmEntityContainer="ChemLabEntities">
+    <EntitySetMapping Name="ActionLog">
+      <EntityTypeMapping TypeName="ChemLabModel.ActionLog">
+        <MappingFragment StoreEntitySet="ActionLog">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="protocolid" ColumnName="protocolid" />
+          <ScalarProperty Name="remoteip" ColumnName="remoteip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActionLogPassport">
+      <EntityTypeMapping TypeName="ChemLabModel.ActionLogPassport">
+        <MappingFragment StoreEntitySet="ActionLogPassport">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="passportid" ColumnName="passportid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuthActivity">
+      <EntityTypeMapping TypeName="ChemLabModel.AuthActivity">
+        <MappingFragment StoreEntitySet="AuthActivity">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="lastactivity" ColumnName="lastactivity" />
+          <ScalarProperty Name="islogged" ColumnName="islogged" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuthHistory">
+      <EntityTypeMapping TypeName="ChemLabModel.AuthHistory">
+        <MappingFragment StoreEntitySet="AuthHistory">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="dt" ColumnName="dt" />
+          <ScalarProperty Name="islogged" ColumnName="islogged" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer">
+      <EntityTypeMapping TypeName="ChemLabModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="filialid" ColumnName="filialid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Filial">
+      <EntityTypeMapping TypeName="ChemLabModel.Filial">
+        <MappingFragment StoreEntitySet="Filial">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Passport">
+      <EntityTypeMapping TypeName="ChemLabModel.Passport">
+        <MappingFragment StoreEntitySet="Passport">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="filialid" ColumnName="filialid" />
+          <ScalarProperty Name="num" ColumnName="num" />
+          <ScalarProperty Name="shift" ColumnName="shift" />
+          <ScalarProperty Name="dt" ColumnName="dt" />
+          <ScalarProperty Name="dtsample" ColumnName="dtsample" />
+          <ScalarProperty Name="dtsamplelast" ColumnName="dtsamplelast" />
+          <ScalarProperty Name="dtclose" ColumnName="dtclose" />
+          <ScalarProperty Name="closelevel" ColumnName="closelevel" />
+          <ScalarProperty Name="samplesourceid" ColumnName="samplesourceid" />
+          <ScalarProperty Name="samplelocationid" ColumnName="samplelocationid" />
+          <ScalarProperty Name="laborantid" ColumnName="laborantid" />
+          <ScalarProperty Name="operatorid" ColumnName="operatorid" />
+          <ScalarProperty Name="recipientid" ColumnName="recipientid" />
+          <ScalarProperty Name="throughsikn" ColumnName="throughsikn" />
+          <ScalarProperty Name="throughsiknid" ColumnName="throughsiknid" />
+          <ScalarProperty Name="tempreal" ColumnName="tempreal" />
+          <ScalarProperty Name="pressure" ColumnName="pressure" />
+          <ScalarProperty Name="densreal" ColumnName="densreal" />
+          <ScalarProperty Name="dens20" ColumnName="dens20" />
+          <ScalarProperty Name="dens15" ColumnName="dens15" />
+          <ScalarProperty Name="water" ColumnName="water" />
+          <ScalarProperty Name="saltmg" ColumnName="saltmg" />
+          <ScalarProperty Name="salt" ColumnName="salt" />
+          <ScalarProperty Name="mechan" ColumnName="mechan" />
+          <ScalarProperty Name="sulphur" ColumnName="sulphur" />
+          <ScalarProperty Name="vaporpres" ColumnName="vaporpres" />
+          <ScalarProperty Name="fr200" ColumnName="fr200" />
+          <ScalarProperty Name="fr300" ColumnName="fr300" />
+          <ScalarProperty Name="paraffin" ColumnName="paraffin" />
+          <ScalarProperty Name="hydrogen" ColumnName="hydrogen" />
+          <ScalarProperty Name="mercaptan" ColumnName="mercaptan" />
+          <ScalarProperty Name="organic" ColumnName="organic" />
+          <ScalarProperty Name="visc" ColumnName="visc" />
+          <ScalarProperty Name="designation" ColumnName="designation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PassportTnpa">
+      <EntityTypeMapping TypeName="ChemLabModel.PassportTnpa">
+        <MappingFragment StoreEntitySet="PassportTnpa">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tank" ColumnName="tank" />
+          <ScalarProperty Name="uun" ColumnName="uun" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Person">
+      <EntityTypeMapping TypeName="ChemLabModel.Person">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="filialid" ColumnName="filialid" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="departmentid" ColumnName="departmentid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Protocol">
+      <EntityTypeMapping TypeName="ChemLabModel.Protocol">
+        <MappingFragment StoreEntitySet="Protocol">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="filialid" ColumnName="filialid" />
+          <ScalarProperty Name="num" ColumnName="num" />
+          <ScalarProperty Name="dt" ColumnName="dt" />
+          <ScalarProperty Name="testdt" ColumnName="testdt" />
+          <ScalarProperty Name="endtestdt" ColumnName="endtestdt" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="testobject" ColumnName="testobject" />
+          <ScalarProperty Name="samplenum" ColumnName="samplenum" />
+          <ScalarProperty Name="sampledt" ColumnName="sampledt" />
+          <ScalarProperty Name="endsampledt" ColumnName="endsampledt" />
+          <ScalarProperty Name="samplerid" ColumnName="samplerid" />
+          <ScalarProperty Name="samplesourceid" ColumnName="samplesourceid" />
+          <ScalarProperty Name="samplelocationid" ColumnName="samplelocationid" />
+          <ScalarProperty Name="samplelocationstr" ColumnName="samplelocationstr" />
+          <ScalarProperty Name="sampletypeid" ColumnName="sampletypeid" />
+          <ScalarProperty Name="sampletnpa" ColumnName="sampletnpa" />
+          <ScalarProperty Name="laborantid" ColumnName="laborantid" />
+          <ScalarProperty Name="responsibleid" ColumnName="responsibleid" />
+          <ScalarProperty Name="startdt" ColumnName="startdt" />
+          <ScalarProperty Name="enddt" ColumnName="enddt" />
+          <ScalarProperty Name="isnotforpassport" ColumnName="isnotforpassport" />
+          <ScalarProperty Name="iscustomerssample" ColumnName="iscustomerssample" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Protocol_15062021">
+      <EntityTypeMapping TypeName="ChemLabModel.Protocol_15062021">
+        <MappingFragment StoreEntitySet="Protocol-15062021">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="filialid" ColumnName="filialid" />
+          <ScalarProperty Name="num" ColumnName="num" />
+          <ScalarProperty Name="dt" ColumnName="dt" />
+          <ScalarProperty Name="testdt" ColumnName="testdt" />
+          <ScalarProperty Name="endtestdt" ColumnName="endtestdt" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="testobject" ColumnName="testobject" />
+          <ScalarProperty Name="samplenum" ColumnName="samplenum" />
+          <ScalarProperty Name="sampledt" ColumnName="sampledt" />
+          <ScalarProperty Name="samplerid" ColumnName="samplerid" />
+          <ScalarProperty Name="samplesourceid" ColumnName="samplesourceid" />
+          <ScalarProperty Name="samplelocationid" ColumnName="samplelocationid" />
+          <ScalarProperty Name="samplelocationstr" ColumnName="samplelocationstr" />
+          <ScalarProperty Name="sampletnpa" ColumnName="sampletnpa" />
+          <ScalarProperty Name="laborantid" ColumnName="laborantid" />
+          <ScalarProperty Name="responsibleid" ColumnName="responsibleid" />
+          <ScalarProperty Name="startdt" ColumnName="startdt" />
+          <ScalarProperty Name="enddt" ColumnName="enddt" />
+          <ScalarProperty Name="sampletypeid" ColumnName="sampletypeid" />
+          <ScalarProperty Name="isnotforpassport" ColumnName="isnotforpassport" />
+          <ScalarProperty Name="iscustomerssample" ColumnName="iscustomerssample" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Protocol_old">
+      <EntityTypeMapping TypeName="ChemLabModel.Protocol_old">
+        <MappingFragment StoreEntitySet="Protocol-old">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="filialid" ColumnName="filialid" />
+          <ScalarProperty Name="num" ColumnName="num" />
+          <ScalarProperty Name="dt" ColumnName="dt" />
+          <ScalarProperty Name="testdt" ColumnName="testdt" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="testobject" ColumnName="testobject" />
+          <ScalarProperty Name="samplenum" ColumnName="samplenum" />
+          <ScalarProperty Name="sampledt" ColumnName="sampledt" />
+          <ScalarProperty Name="samplerid" ColumnName="samplerid" />
+          <ScalarProperty Name="samplesourceid" ColumnName="samplesourceid" />
+          <ScalarProperty Name="samplelocationid" ColumnName="samplelocationid" />
+          <ScalarProperty Name="samplelocationstr" ColumnName="samplelocationstr" />
+          <ScalarProperty Name="sampletnpa" ColumnName="sampletnpa" />
+          <ScalarProperty Name="laborantid" ColumnName="laborantid" />
+          <ScalarProperty Name="responsibleid" ColumnName="responsibleid" />
+          <ScalarProperty Name="startdt" ColumnName="startdt" />
+          <ScalarProperty Name="enddt" ColumnName="enddt" />
+          <ScalarProperty Name="sampletypeid" ColumnName="sampletypeid" />
+          <ScalarProperty Name="isnotforpassport" ColumnName="isnotforpassport" />
+          <ScalarProperty Name="endtestdt" ColumnName="endtestdt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProtocolResult">
+      <EntityTypeMapping TypeName="ChemLabModel.ProtocolResult">
+        <MappingFragment StoreEntitySet="ProtocolResult">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="protocolid" ColumnName="protocolid" />
+          <ScalarProperty Name="tempareom" ColumnName="tempareom" />
+          <ScalarProperty Name="tempreal" ColumnName="tempreal" />
+          <ScalarProperty Name="densareom" ColumnName="densareom" />
+          <ScalarProperty Name="densreal" ColumnName="densreal" />
+          <ScalarProperty Name="dens20" ColumnName="dens20" />
+          <ScalarProperty Name="dens15" ColumnName="dens15" />
+          <ScalarProperty Name="water" ColumnName="water" />
+          <ScalarProperty Name="saltmg" ColumnName="saltmg" />
+          <ScalarProperty Name="mechan" ColumnName="mechan" />
+          <ScalarProperty Name="sulphur" ColumnName="sulphur" />
+          <ScalarProperty Name="vaporpres" ColumnName="vaporpres" />
+          <ScalarProperty Name="fr200" ColumnName="fr200" />
+          <ScalarProperty Name="fr300" ColumnName="fr300" />
+          <ScalarProperty Name="fr350" ColumnName="fr350" />
+          <ScalarProperty Name="paraffin" ColumnName="paraffin" />
+          <ScalarProperty Name="hydrogen" ColumnName="hydrogen" />
+          <ScalarProperty Name="mercaptan" ColumnName="mercaptan" />
+          <ScalarProperty Name="organic" ColumnName="organic" />
+          <ScalarProperty Name="visc" ColumnName="visc" />
+          <ScalarProperty Name="pressure" ColumnName="pressure" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProtocolRoom">
+      <EntityTypeMapping TypeName="ChemLabModel.ProtocolRoom">
+        <MappingFragment StoreEntitySet="ProtocolRoom">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="protocolid" ColumnName="protocolid" />
+          <ScalarProperty Name="roomid" ColumnName="roomid" />
+          <ScalarProperty Name="temperature" ColumnName="temperature" />
+          <ScalarProperty Name="pressure" ColumnName="pressure" />
+          <ScalarProperty Name="humidity" ColumnName="humidity" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProtocolTest">
+      <EntityTypeMapping TypeName="ChemLabModel.ProtocolTest">
+        <MappingFragment StoreEntitySet="ProtocolTest">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="protocolid" ColumnName="protocolid" />
+          <ScalarProperty Name="dens" ColumnName="dens" />
+          <ScalarProperty Name="water" ColumnName="water" />
+          <ScalarProperty Name="salt" ColumnName="salt" />
+          <ScalarProperty Name="mechan" ColumnName="mechan" />
+          <ScalarProperty Name="sulphur" ColumnName="sulphur" />
+          <ScalarProperty Name="vaporpres" ColumnName="vaporpres" />
+          <ScalarProperty Name="fraction" ColumnName="fraction" />
+          <ScalarProperty Name="paraffin" ColumnName="paraffin" />
+          <ScalarProperty Name="hydrogen" ColumnName="hydrogen" />
+          <ScalarProperty Name="mercaptan" ColumnName="mercaptan" />
+          <ScalarProperty Name="organic" ColumnName="organic" />
+          <ScalarProperty Name="visc" ColumnName="visc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProtocolTool">
+      <EntityTypeMapping TypeName="ChemLabModel.ProtocolTool">
+        <MappingFragment StoreEntitySet="ProtocolTool">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="protocolid" ColumnName="protocolid" />
+          <ScalarProperty Name="toolid" ColumnName="toolid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProtocolTool_old">
+      <EntityTypeMapping TypeName="ChemLabModel.ProtocolTool_old">
+        <MappingFragment StoreEntitySet="ProtocolTool-old">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="protocolid" ColumnName="protocolid" />
+          <ScalarProperty Name="toolid" ColumnName="toolid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recipient">
+      <EntityTypeMapping TypeName="ChemLabModel.Recipient">
+        <MappingFragment StoreEntitySet="Recipient">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="filialid" ColumnName="filialid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="ChemLabModel.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Room">
+      <EntityTypeMapping TypeName="ChemLabModel.Room">
+        <MappingFragment StoreEntitySet="Room">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="filialid" ColumnName="filialid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Room_old">
+      <EntityTypeMapping TypeName="ChemLabModel.Room_old">
+        <MappingFragment StoreEntitySet="Room-old">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="filialid" ColumnName="filialid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SampleLocation">
+      <EntityTypeMapping TypeName="ChemLabModel.SampleLocation">
+        <MappingFragment StoreEntitySet="SampleLocation">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="filialid" ColumnName="filialid" />
+          <ScalarProperty Name="sourceid" ColumnName="sourceid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="tankid" ColumnName="tankid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SampleSource">
+      <EntityTypeMapping TypeName="ChemLabModel.SampleSource">
+        <MappingFragment StoreEntitySet="SampleSource">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SampleType">
+      <EntityTypeMapping TypeName="ChemLabModel.SampleType">
+        <MappingFragment StoreEntitySet="SampleType">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ChemLabModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TestDensTnpa">
+      <EntityTypeMapping TypeName="ChemLabModel.TestDensTnpa">
+        <MappingFragment StoreEntitySet="TestDensTnpa">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="densroom" ColumnName="densroom" />
+          <ScalarProperty Name="densreal" ColumnName="densreal" />
+          <ScalarProperty Name="dens20" ColumnName="dens20" />
+          <ScalarProperty Name="dens15" ColumnName="dens15" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TestTnpa">
+      <EntityTypeMapping TypeName="ChemLabModel.TestTnpa">
+        <MappingFragment StoreEntitySet="TestTnpa">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="testtypeid" ColumnName="testtypeid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TestType">
+      <EntityTypeMapping TypeName="ChemLabModel.TestType">
+        <MappingFragment StoreEntitySet="TestType">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="shortname" ColumnName="shortname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tool">
+      <EntityTypeMapping TypeName="ChemLabModel.Tool">
+        <MappingFragment StoreEntitySet="Tool">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="filialid" ColumnName="filialid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="sernum" ColumnName="sernum" />
+          <ScalarProperty Name="regnum" ColumnName="regnum" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="checkdate" ColumnName="checkdate" />
+          <ScalarProperty Name="actual" ColumnName="actual" />
+          <ScalarProperty Name="fullname" ColumnName="fullname" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ToolType">
+      <EntityTypeMapping TypeName="ChemLabModel.ToolType">
+        <MappingFragment StoreEntitySet="ToolType">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="toolid" ColumnName="toolid" />
+          <ScalarProperty Name="testid" ColumnName="testid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ToolType_old">
+      <EntityTypeMapping TypeName="ChemLabModel.ToolType_old">
+        <MappingFragment StoreEntitySet="ToolType-old">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="toolid" ColumnName="toolid" />
+          <ScalarProperty Name="testid" ColumnName="testid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ChemLabModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="roleid" ColumnName="roleid" />
+          <ScalarProperty Name="filialid" ColumnName="filialid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users2old">
+      <EntityTypeMapping TypeName="ChemLabModel.Users2old">
+        <MappingFragment StoreEntitySet="Users2old">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="personid" ColumnName="personid" />
+          <ScalarProperty Name="roleid" ColumnName="roleid" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Protocol_trash">
+      <EntityTypeMapping TypeName="ChemLabModel.Protocol_trash">
+        <MappingFragment StoreEntitySet="Protocol_trash">
+          <ScalarProperty Name="logdate" ColumnName="logdate" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="filialid" ColumnName="filialid" />
+          <ScalarProperty Name="num" ColumnName="num" />
+          <ScalarProperty Name="dt" ColumnName="dt" />
+          <ScalarProperty Name="testdt" ColumnName="testdt" />
+          <ScalarProperty Name="endtestdt" ColumnName="endtestdt" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="testobject" ColumnName="testobject" />
+          <ScalarProperty Name="samplenum" ColumnName="samplenum" />
+          <ScalarProperty Name="sampledt" ColumnName="sampledt" />
+          <ScalarProperty Name="endsampledt" ColumnName="endsampledt" />
+          <ScalarProperty Name="samplerid" ColumnName="samplerid" />
+          <ScalarProperty Name="samplesourceid" ColumnName="samplesourceid" />
+          <ScalarProperty Name="samplelocationid" ColumnName="samplelocationid" />
+          <ScalarProperty Name="samplelocationstr" ColumnName="samplelocationstr" />
+          <ScalarProperty Name="sampletypeid" ColumnName="sampletypeid" />
+          <ScalarProperty Name="sampletnpa" ColumnName="sampletnpa" />
+          <ScalarProperty Name="laborantid" ColumnName="laborantid" />
+          <ScalarProperty Name="responsibleid" ColumnName="responsibleid" />
+          <ScalarProperty Name="startdt" ColumnName="startdt" />
+          <ScalarProperty Name="enddt" ColumnName="enddt" />
+          <ScalarProperty Name="isnotforpassport" ColumnName="isnotforpassport" />
+          <ScalarProperty Name="iscustomerssample" ColumnName="iscustomerssample" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Protocol_updated">
+      <EntityTypeMapping TypeName="ChemLabModel.Protocol_updated">
+        <MappingFragment StoreEntitySet="Protocol_updated">
+          <ScalarProperty Name="logdate" ColumnName="logdate" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="filialid" ColumnName="filialid" />
+          <ScalarProperty Name="num" ColumnName="num" />
+          <ScalarProperty Name="dt" ColumnName="dt" />
+          <ScalarProperty Name="testdt" ColumnName="testdt" />
+          <ScalarProperty Name="endtestdt" ColumnName="endtestdt" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="testobject" ColumnName="testobject" />
+          <ScalarProperty Name="samplenum" ColumnName="samplenum" />
+          <ScalarProperty Name="sampledt" ColumnName="sampledt" />
+          <ScalarProperty Name="endsampledt" ColumnName="endsampledt" />
+          <ScalarProperty Name="samplerid" ColumnName="samplerid" />
+          <ScalarProperty Name="samplesourceid" ColumnName="samplesourceid" />
+          <ScalarProperty Name="samplelocationid" ColumnName="samplelocationid" />
+          <ScalarProperty Name="samplelocationstr" ColumnName="samplelocationstr" />
+          <ScalarProperty Name="sampletypeid" ColumnName="sampletypeid" />
+          <ScalarProperty Name="sampletnpa" ColumnName="sampletnpa" />
+          <ScalarProperty Name="laborantid" ColumnName="laborantid" />
+          <ScalarProperty Name="responsibleid" ColumnName="responsibleid" />
+          <ScalarProperty Name="startdt" ColumnName="startdt" />
+          <ScalarProperty Name="enddt" ColumnName="enddt" />
+          <ScalarProperty Name="isnotforpassport" ColumnName="isnotforpassport" />
+          <ScalarProperty Name="iscustomerssample" ColumnName="iscustomerssample" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProtocolResult_trash">
+      <EntityTypeMapping TypeName="ChemLabModel.ProtocolResult_trash">
+        <MappingFragment StoreEntitySet="ProtocolResult_trash">
+          <ScalarProperty Name="logdate" ColumnName="logdate" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="protocolid" ColumnName="protocolid" />
+          <ScalarProperty Name="tempareom" ColumnName="tempareom" />
+          <ScalarProperty Name="tempreal" ColumnName="tempreal" />
+          <ScalarProperty Name="densareom" ColumnName="densareom" />
+          <ScalarProperty Name="densreal" ColumnName="densreal" />
+          <ScalarProperty Name="dens20" ColumnName="dens20" />
+          <ScalarProperty Name="dens15" ColumnName="dens15" />
+          <ScalarProperty Name="water" ColumnName="water" />
+          <ScalarProperty Name="saltmg" ColumnName="saltmg" />
+          <ScalarProperty Name="mechan" ColumnName="mechan" />
+          <ScalarProperty Name="sulphur" ColumnName="sulphur" />
+          <ScalarProperty Name="vaporpres" ColumnName="vaporpres" />
+          <ScalarProperty Name="fr200" ColumnName="fr200" />
+          <ScalarProperty Name="fr300" ColumnName="fr300" />
+          <ScalarProperty Name="fr350" ColumnName="fr350" />
+          <ScalarProperty Name="paraffin" ColumnName="paraffin" />
+          <ScalarProperty Name="hydrogen" ColumnName="hydrogen" />
+          <ScalarProperty Name="mercaptan" ColumnName="mercaptan" />
+          <ScalarProperty Name="organic" ColumnName="organic" />
+          <ScalarProperty Name="visc" ColumnName="visc" />
+          <ScalarProperty Name="pressure" ColumnName="pressure" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProtocolResult_updated">
+      <EntityTypeMapping TypeName="ChemLabModel.ProtocolResult_updated">
+        <MappingFragment StoreEntitySet="ProtocolResult_updated">
+          <ScalarProperty Name="logdate" ColumnName="logdate" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="protocolid" ColumnName="protocolid" />
+          <ScalarProperty Name="tempareom" ColumnName="tempareom" />
+          <ScalarProperty Name="tempreal" ColumnName="tempreal" />
+          <ScalarProperty Name="densareom" ColumnName="densareom" />
+          <ScalarProperty Name="densreal" ColumnName="densreal" />
+          <ScalarProperty Name="dens20" ColumnName="dens20" />
+          <ScalarProperty Name="dens15" ColumnName="dens15" />
+          <ScalarProperty Name="water" ColumnName="water" />
+          <ScalarProperty Name="saltmg" ColumnName="saltmg" />
+          <ScalarProperty Name="mechan" ColumnName="mechan" />
+          <ScalarProperty Name="sulphur" ColumnName="sulphur" />
+          <ScalarProperty Name="vaporpres" ColumnName="vaporpres" />
+          <ScalarProperty Name="fr200" ColumnName="fr200" />
+          <ScalarProperty Name="fr300" ColumnName="fr300" />
+          <ScalarProperty Name="fr350" ColumnName="fr350" />
+          <ScalarProperty Name="paraffin" ColumnName="paraffin" />
+          <ScalarProperty Name="hydrogen" ColumnName="hydrogen" />
+          <ScalarProperty Name="mercaptan" ColumnName="mercaptan" />
+          <ScalarProperty Name="organic" ColumnName="organic" />
+          <ScalarProperty Name="visc" ColumnName="visc" />
+          <ScalarProperty Name="pressure" ColumnName="pressure" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tool_old">
+      <EntityTypeMapping TypeName="ChemLabModel.Tool_old">
+        <MappingFragment StoreEntitySet="Tool-old">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="filialid" ColumnName="filialid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="sernum" ColumnName="sernum" />
+          <ScalarProperty Name="regnum" ColumnName="regnum" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="checkdate" ColumnName="checkdate" />
+          <ScalarProperty Name="actual" ColumnName="actual" />
+          <ScalarProperty Name="fullname" ColumnName="fullname" />
+          <ScalarProperty Name="gid" ColumnName="gid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LastTanksResultMoz">
+      <EntityTypeMapping TypeName="ChemLabModel.LastTanksResultMoz">
+        <MappingFragment StoreEntitySet="LastTanksResultMoz">
+          <ScalarProperty Name="endsampledt" ColumnName="endsampledt" />
+          <ScalarProperty Name="tankid" ColumnName="tankid" />
+          <ScalarProperty Name="densreal" ColumnName="densreal" />
+          <ScalarProperty Name="dens20" ColumnName="dens20" />
+          <ScalarProperty Name="tempreal" ColumnName="tempreal" />
+          <ScalarProperty Name="water" ColumnName="water" />
+          <ScalarProperty Name="saltmg" ColumnName="saltmg" />
+          <ScalarProperty Name="mechan" ColumnName="mechan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LastTanksResultPol">
+      <EntityTypeMapping TypeName="ChemLabModel.LastTanksResultPol">
+        <MappingFragment StoreEntitySet="LastTanksResultPol">
+          <ScalarProperty Name="sampledt" ColumnName="sampledt" />
+          <ScalarProperty Name="tankid" ColumnName="tankid" />
+          <ScalarProperty Name="densreal" ColumnName="densreal" />
+          <ScalarProperty Name="dens20" ColumnName="dens20" />
+          <ScalarProperty Name="tempreal" ColumnName="tempreal" />
+          <ScalarProperty Name="water" ColumnName="water" />
+          <ScalarProperty Name="saltmg" ColumnName="saltmg" />
+          <ScalarProperty Name="mechan" ColumnName="mechan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище ChemLabModel.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище ChemLabModel.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище ChemLabModel.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище ChemLabModel.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ChemLabModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище ChemLabModel.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ChemLabModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище ChemLabModel.sp_renamediagram" />
+  </EntityContainerMapping>
+</Mapping>

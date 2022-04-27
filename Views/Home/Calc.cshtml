@@ -1,0 +1,562 @@
+﻿<style>
+    /* Style the tab */
+    .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+    }
+
+        /* Style the buttons inside the tab */
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+            /* Change background color of buttons on hover */
+            .tab button:hover {
+                background-color: #ddd;
+            }
+
+            /* Create an active/current tablink class */
+            .tab button.active {
+                background-color: #ccc;
+            }
+
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+    }
+
+    /* Style the close button */
+    .topright {
+        float: right;
+        cursor: pointer;
+        font-size: 28px;
+    }
+
+        .topright:hover {
+            color: red;
+        }
+</style>
+<h3>Калькулятор</h3>
+
+<div id="ServicesModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content" id='ServicesModalContent'>
+
+        </div>
+    </div>
+</div>
+
+<div id="ServicesModalDelete" class="modal fade">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content" id='ServicesModalDeleteContent'>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    .dan {
+        border-radius: 5px;
+        border-color: black;
+    }
+</style>
+
+<hr>
+
+@*<table>
+
+    <tr>
+        <td>
+            @Html.DropDownList("name", ViewBag.podr as SelectList, "Выберите филиал", new { @class = "form-control btn-block", id = "filial" })
+            <br>
+            <select id="rezer" name="rezer" class="form-control">
+                <option selected value="0">Выберите резервуар</option>
+            </select>
+            <br>
+            <button type="button" onclick="GetHim()" class="btn btn-default">Показать</button>
+
+        </td>
+        <td>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td>
+            <div class="dan modal-dialog modal-sm">
+                <center><p><b>Данные хим.анализа по резервуару на @ViewBag.dat</b></p></center>
+                <div id="res">
+                </div>
+
+            </div>
+        </td>
+    </tr>
+</table>
+<hr>*@
+
+
+<div class="tab">
+    <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Данные химанализа</button>
+    <button class="tablinks" onclick="openCity(event, 'Paris')">Рассчет резервуара по уровню</button>
+    <button class="tablinks" onclick="openCity(event, 'Tokyo')">Рассчет резервуара по массе</button>
+</div>
+
+@*------------------------------------------------------------------------------------------------------------------------------*@
+
+<div id="London" class="tabcontent">
+    <span onclick="this.parentElement.style.display='none'" class="topright">×</span>
+    <h3>Данные химанализа</h3>
+    <table>
+
+        <tr>
+            <td>
+                @Html.DropDownList("name", ViewBag.podr as SelectList, "Выберите филиал", new { @class = "form-control btn-block", id = "filial" })
+                <br>
+                <select id="rezer" name="rezer" class="form-control">
+                    <option selected value="0">Выберите резервуар</option>
+                </select>
+                <br>
+                <button type="button" onclick="GetHim()" class="btn btn-default">Показать</button>
+
+            </td>
+            <td>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td>
+                <div class="dan modal-dialog modal-sm">
+                    
+                    <div id="res">
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+    </table>
+    <hr>
+</div>
+
+@*---------------------------Рассчет резервуара по уровню--------------------------------------------------------------------------------*@
+
+<div id="Paris" class="tabcontent">
+    <span onclick="this.parentElement.style.display='none'" class="topright">×</span>
+    <h3>Рассчет резервуара по уровню</h3>
+    <center>
+        <table>
+            <tr>
+                <td>
+                    <label>Выберите филиал</label><br>
+                    @Html.DropDownList("name", ViewBag.podr as SelectList, "Выберите филиал", new { @class = "form-control btn-block", id = "filial1" })
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>
+                    <label>Выберите резервуар</label><br>
+                    <select id="rezer1" name="rezer1" class="form-control">
+                        <option selected value="0">Выберите резервуар</option>
+                    </select>
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Начальный уровень, мм</label><br>
+                    <input type="text" class="form-control btn-block" id="Unach" onkeyup="this.value = this.value.replace(/[^(0-9)(,)]/,'');" />
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>
+                    <label>Конечный уровень, мм</label><br>
+                    <input type="text" class="form-control btn-block" id="Ukon" onkeyup="this.value = this.value.replace(/[^(0-9)(,)]/,'');" />
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>
+                    <label>Коэфф.темп.резервуара</label><br>
+                    <input type="text" class="form-control btn-block" id="Kst" value="0" onkeyup="this.value = this.value.replace(/[^(0-9)(,)]/,'');" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Начальный уровень п.воды, мм</label><br>
+                    <input type="text" class="form-control btn-block" id="UnachH2O" value="0" onkeyup="this.value = this.value.replace(/[^(0-9)(,)]/,'');" />
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>
+                    <label>Конечный уровень п.воды, мм</label><br>
+                    <input type="text" class="form-control btn-block" id="UkonH2O" value="0" onkeyup="this.value = this.value.replace(/[^(0-9)(,)]/,'');" />
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>
+                    <label>Коэфф.темп.средств изм.</label><br>
+                    <input type="text" class="form-control btn-block" id="Ksr" value="0" onkeyup="this.value = this.value.replace(/[^(0-9)(,)]/,'');" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Начальная плотность, кг/м<sup><small>3</small></sup></label><br>
+                    <input type="text" class="form-control btn-block" id="Pnach" onkeyup="this.value = this.value.replace(/[^(0-9)(,)]/,'');" />
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>
+                    <label>Конечная плотность, кг/м<sup><small>3</small></sup></label><br>
+                    <input type="text" class="form-control btn-block" id="Pkon" onkeyup="this.value = this.value.replace(/[^(0-9)(,)]/,'');" />
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>                   
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Начальная температура, С&#176;</label><br>
+                    <input type="text" class="form-control btn-block" id="Tnach" onkeyup="this.value = this.value.replace(/[^(0-9)(,)]/,'');" />
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>
+                    <label>Конечная температура,С&#176; </label><br>
+                    <input type="text" class="form-control btn-block" id="Tkon" onkeyup="this.value = this.value.replace(/[^(0-9)(,)]/,'');" />
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td></td>
+            </tr>
+        </table>
+        <table>
+        <tr style="text-align:center;">
+
+            <td colspan="3" style="text-align:center;">
+               
+                    <label>% баласта </label><br>
+                    <input type="text" class="form-control btn-block" id="Bal" value="0" onkeyup="this.value = this.value.replace(/[^(0-9)(,)]/,'');" />
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+    </table>
+    <hr>
+    <div id="razn">
+        <table>
+            <tr>
+                <td>
+                    <label>Начальный объем, м<sup><small>3</small></sup></label><br>
+                    <input type="text" readonly class="form-control btn-block" id="Vnach" />
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>
+                    <label>Конечный объем, м<sup><small>3</small></sup></label><br>
+                    <input type="text" readonly class="form-control btn-block" id="Vkon" />
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Начальная масса, тонн </label><br>
+                    <input type="text" readonly class="form-control btn-block" id="Tnach" />
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>
+                    <label>Конечная масса, тонн</label><br>
+                    <input type="text" readonly class="form-control btn-block" id="Tkon" />
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Объём, м<sup><small>3</small></sup> </label><br>
+                    <input type="text" readonly class="form-control btn-block" id="Tnach" />
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>
+                    <label>Масса (брутто),тонн</label><br>
+                    <input type="text" readonly class="form-control btn-block" id="Tkon" />
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>
+                    <label>Масса (нетто),тонн</label><br>
+                    <input type="text" readonly class="form-control btn-block" id="Tkon" />
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3" style="text-align:center">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td><input type="hidden" readonly class="form-control btn-block;" style="width:200px;" /></td>
+            </tr>
+        </table>
+    </div>
+    <table>
+
+        <tr>
+            <td colspan="3" style="text-align:center">
+                <button type="button" onclick="GetRazn()" class="btn btn-default">Рассчитать</button>
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td></td>
+        </tr>
+
+    </table>
+    </center>
+    <div id="GradTab">
+
+    </div>
+
+</div>
+
+<div id="Tokyo" class="tabcontent">
+    <span onclick="this.parentElement.style.display='none'" class="topright">×</span>
+    <h3>Рассчет резервуара по массе</h3>
+    
+    @*--------------------------Рассчет резервуара по массе---------------------------------------------------------------------------*@
+<center>
+    <table>
+        <tr>
+            <td>
+                <label>Выберите филиал</label><br>
+                @Html.DropDownList("name", ViewBag.podr as SelectList, "Выберите филиал", new { @class = "form-control btn-block", id = "filial2" })
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>
+                <label>Выберите резервуар</label><br>
+                <select id="rezer2" name="rezer1" class="form-control">
+                    <option selected value="0">Выберите резервуар</option>
+                </select>
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Начальный уровень, мм</label><br>
+                <input type="text" class="form-control btn-block" id="Unach1" onkeyup="this.value = this.value.replace(/[^(0-9)(,)]/,'');" />
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>
+                <label>Масса нетто, тонн</label><br>
+                <input type="text" class="form-control btn-block" id="RM1" onkeyup="this.value = this.value.replace(/[^(0-9)(,\-)]/,'');" />
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>
+                <label>Коэфф.темп.резервуара</label><br>
+                <input type="text" class="form-control btn-block" id="Kst1" value="0" onkeyup="this.value = this.value.replace(/[^(0-9)(,)]/,'');" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Начальный уровень п.воды, мм</label><br>
+                <input type="text" class="form-control btn-block" id="UnachH2O1" value="0" onkeyup="this.value = this.value.replace(/[^(0-9)(,)]/,'');" />
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>
+                <label>Конечный уровень п.воды, мм</label><br>
+                <input type="text" class="form-control btn-block" id="UkonH2O1" value="0" onkeyup="this.value = this.value.replace(/[^(0-9)(,)]/,'');" />
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>
+                <label>Коэфф.темп.средств изм.</label><br>
+                <input type="text" class="form-control btn-block" id="Ksr1" value="0" onkeyup="this.value = this.value.replace(/[^(0-9)(,)]/,'');" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Начальная плотность, кг/м<sup><small>3</small></sup></label><br>
+                <input type="text" class="form-control btn-block" id="Pnach1" onkeyup="this.value = this.value.replace(/[^(0-9)(,)]/,'');" />
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>
+                <label>Конечная плотность, кг/м<sup><small>3</small></sup></label><br>
+                <input type="text" class="form-control btn-block" id="Pkon1" onkeyup="this.value = this.value.replace(/[^(0-9)(,)]/,'');" />
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Начальная температура, С&#176;</label><br>
+                <input type="text" class="form-control btn-block" id="Tnach1" onkeyup="this.value = this.value.replace(/[^(0-9)(,)]/,'');" />
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>
+                <label>Конечная температура,С&#176; </label><br>
+                <input type="text" class="form-control btn-block" id="Tkon1" onkeyup="this.value = this.value.replace(/[^(0-9)(,)]/,'');" />
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td></td>
+        </tr>
+    </table>
+    <table>
+        <tr style="text-align:center;">
+
+            <td colspan="3" style="text-align:center;">
+
+                <label>% баласта </label><br>
+                <input type="text" class="form-control btn-block" id="Bal1" value="0" onkeyup="this.value = this.value.replace(/[^(0-9)(,)]/,'');" />
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+    </table>
+    <hr>
+    <div id="razn1">
+        <table>
+            <tr>
+                <td>
+                    <label>Начальный объем, м<sup><small>3</small></sup></label><br>
+                    <input type="text" readonly class="form-control btn-block" id="Vnach1" />
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>
+                    <label>Конечный объем, м<sup><small>3</small></sup></label><br>
+                    <input type="text" readonly class="form-control btn-block" id="Vkon1" />
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Начальная масса, тонн </label><br>
+                    <input type="text" readonly class="form-control btn-block" id="Mnach1" />
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>
+                    <label>Конечная масса, тонн</label><br>
+                    <input type="text" readonly class="form-control btn-block" id="Mkon1" />
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Объём, м<sup><small>3</small></sup> </label><br>
+                    <input type="text" readonly class="form-control btn-block" id="RV1" />
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>                    
+                    <label>Масса (брутто),тонн</label><br>
+                    <input type="text" readonly class="form-control btn-block" id="Tkon" />
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>
+                    <label>Конечный уровень,мм</label><br>
+                    <input type="text" readonly class="form-control btn-block" id="Tkon" />                   
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3" style="text-align:center">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td><input type="hidden" readonly class="form-control btn-block;" style="width:200px;" /></td>
+            </tr>
+        </table>
+    </div>
+    <table>
+
+        <tr>
+            <td colspan="3" style="text-align:center">
+                <button type="button" onclick="GetRazn1()" class="btn btn-default">Рассчитать</button>
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td></td>
+        </tr>
+
+    </table>
+</center>
+        <div id="GradTab">
+
+        </div>
+      
+
+    @*-----------------------------------------------------------------------------------------------------*@
+</div>
+
+<div id="GradTab">
+
+</div>
+<script>
+
+        $(function d() {
+            $('#filial').change(function d() {
+                var ID = $(this).val();
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("GetRezerv")/' + ID,
+                    success: function d(data) {
+                        $('#rezer').replaceWith(data);
+                    }
+                });
+            });
+        })
+</script>
+
+<script>
+
+        $(function d1() {
+            $('#filial1').change(function d1() {
+                var ID = $(this).val();
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("GetRezerv1")/' + ID,
+                    success: function d(data) {
+                        $('#rezer1').replaceWith(data);
+                    }
+                });
+            });
+        })
+</script>
+
+<script>
+
+        $(function d2() {
+            $('#filial2').change(function d2() {
+                var ID = $(this).val();
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("GetRezerv2")/' + ID,
+                    success: function d(data) {
+                        $('#rezer2').replaceWith(data);
+                    }
+                });
+            });
+        })
+</script>
+
+<script>
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+</script>

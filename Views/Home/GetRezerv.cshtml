@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Inventariz.Models.trl_tankview>
+@*@model IEnumerable<string>
+    <select id="rezer" name="rezerv" class="form-control">
+        <option selected value="0">Выберите резервуар</option>
+        @foreach (var item in Model)
+        {
+            <option value="@item">@item</option>
+        }
+    </select>*@
+<select id="rezer" name="rezerv" class="form-control">
+    <option selected value="0">Выберите резервуар</option>
+    @foreach (var item in Model)
+    {
+        <option value="@item.TankID">@item.TankName, @item.TypeName</option>
+    }
+</select>

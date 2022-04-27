@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Inventariz.Models.calibration>
+
+<style type="text/css">
+    TH {
+        background: #EFF5FB; /* Цвет фона */
+        border-bottom: double;
+    }
+
+    tr:nth-child(odd) {
+        background: #EFF5FB; /* Цвет фона */
+    }
+
+    tr:nth-child(even) {
+        background: #ffffff; /* Цвет фона */
+    }
+</style>
+
+<table class="table" id="tabb">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Уровень наполнения, мм
+        </th>
+        <th>
+            Вместимость, м<sup><small>3</small></sup>.
+        </th>
+        <th>
+
+        </th>
+        <th>
+            
+        </th>
+    </tr>
+
+    @foreach (var item in ViewBag.GetTab)
+    {
+        <tr tr class="odd">
+
+            <td>
+                @item.id
+            </td>
+            <td>
+                @item.oillevel
+            </td>
+            <td>
+                @item.oilvolume
+            </td>
+            <td>
+            <td>
+                <button type="button" class="btn btn-icon waves-effect waves-light btn-info" onclick="GradEdit(@item.id)">Редактировать</button>
+                <button type="button" class="btn btn-icon waves-effect waves-light btn-danger" onclick="DeleteGrad(@item.id)">Удалить</button>
+            </td>
+
+        </tr>
+    }
+</table>
+
